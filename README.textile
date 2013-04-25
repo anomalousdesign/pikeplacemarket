@@ -1,0 +1,19 @@
+h1. Todo
+
+* rich
+* rails_admin
+* pg
+
+h1. Setup
+
+* psql dbname < db/pikeplacemarket.dmp
+* rake db:migrate
+
+h1. PG Dump
+
+* pg_dump pikeplacemarket > db/pikeplacemarket.dmp
+
+h1. Default User
+
+* username: admin@pikeplacemarket.org
+* password: pikeplace

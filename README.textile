@@ -6,8 +6,12 @@ h1. Todo
 
 h1. Setup
 
-* psql dbname < db/pikeplacemarket.dmp
+* psql pikeplacemarket < db/pikeplacemarket.dmp
 * rake db:migrate
+
+h1. Deploy
+
+* psql DATABASE_URL < db/pikeplacemarket.dmp
 
 h1. PG Dump
 

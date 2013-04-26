@@ -21,20 +21,55 @@ RailsAdmin.config do |config|
 
     # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
     config.main_app_name = ['Pike Place Market', 'Admin']
+
+    config.actions do
+      # root actions
+      dashboard                     # mandatory
+      # collection actions
+      index                         # mandatory
+      new
+      export
+      history_index
+      bulk_delete
+      # member actions
+      show
+      edit
+      delete
+      history_show
+      show_in_app
+
+      # Add the nestable action for configured models
+      nestable
+
+      toggle
+    end
+
+    config.model Page do
+      nestable_tree({
+        position_field: :position
+      })
+      edit do
+        exclude_fields :ancestry, :slug, :position
+      end
+      list do
+        fields :title, :template
+        field :publish, :toggle
+      end
+    end
     
     # All models rails_admin 4
-    # config.models.each do |m|
-    #   config.model m do
-    #     fields_of_type :text do
-    #       # bootstrap_wysihtml5 = true
-    #       ckeditor true
-    #       ckeditor_base_location '/ckeditor/'
-    #     end 
-    #     fields_of_type :tag_list do
-    #       partial 'tag_list_with_suggestions'
-    #     end
-    #   end
-    # end
+    config.models.each do |m|
+      config.model m do
+        fields_of_type :text do
+          # bootstrap_wysihtml5 = true
+          ckeditor true
+          ckeditor_base_location '/ckeditor/'
+        end 
+        fields_of_type :tag_list do
+          partial 'tag_list_with_suggestions'
+        end
+      end
+    end
     
     # rails_admin 3
     # config.models do

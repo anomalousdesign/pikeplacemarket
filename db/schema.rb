@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425152521) do
+ActiveRecord::Schema.define(:version => 20130426145410) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -31,6 +31,27 @@ ActiveRecord::Schema.define(:version => 20130425152521) do
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
+  create_table "editable_images", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "editable_images", ["name"], :name => "index_editable_images_on_name"
+
+  create_table "editables", :force => true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "editables", ["name"], :name => "index_editables_on_name"
+
   create_table "events", :force => true do |t|
     t.string   "title",      :limit => 250, :null => false
     t.datetime "start",                     :null => false
@@ -39,7 +60,10 @@ ActiveRecord::Schema.define(:version => 20130425152521) do
     t.boolean  "featured",                  :null => false
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+    t.string   "slug"
   end
+
+  add_index "events", ["slug"], :name => "index_events_on_slug"
 
   create_table "merchants", :force => true do |t|
     t.string   "title",           :limit => 100, :null => false
@@ -59,7 +83,10 @@ ActiveRecord::Schema.define(:version => 20130425152521) do
     t.integer  "map_y",                          :null => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.string   "slug"
   end
+
+  add_index "merchants", ["slug"], :name => "index_merchants_on_slug"
 
   create_table "old_tags", :force => true do |t|
     t.string "name",          :limit => 50,  :null => false
@@ -68,30 +95,23 @@ ActiveRecord::Schema.define(:version => 20130425152521) do
   end
 
   create_table "pages", :force => true do |t|
-    t.integer  "user_id",                                        :null => false
-    t.datetime "timestamp",                                      :null => false
-    t.boolean  "publish",                     :default => false, :null => false
-    t.boolean  "featured",                                       :null => false
-    t.text     "feature_text",                                   :null => false
-    t.string   "subtitle",     :limit => 100,                    :null => false
-    t.boolean  "private",                                        :null => false
-    t.string   "url",          :limit => 250,                    :null => false
-    t.string   "link",         :limit => 250,                    :null => false
-    t.integer  "nav_order",                   :default => 0,     :null => false
-    t.string   "nav_group",    :limit => 50,  :default => "",    :null => false
-    t.string   "template",     :limit => 100,                    :null => false
-    t.string   "plugin",       :limit => 100,                    :null => false
-    t.string   "title",        :limit => 250,                    :null => false
-    t.string   "keywords",                                       :null => false
-    t.string   "description",                                    :null => false
-    t.text     "content1",                                       :null => false
-    t.text     "content2",                                       :null => false
-    t.text     "content3",                                       :null => false
-    t.datetime "live_start",                                     :null => false
-    t.datetime "live_end",                                       :null => false
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.boolean  "publish",                    :default => false, :null => false
+    t.integer  "position",                   :default => 0,     :null => false
+    t.string   "template",    :limit => 100, :default => "",    :null => false
+    t.string   "title",                      :default => "",    :null => false
+    t.text     "keywords",                                      :null => false
+    t.text     "description",                                   :null => false
+    t.string   "link"
+    t.datetime "live_start"
+    t.datetime "live_end"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ancestry"
   end
+
+  add_index "pages", ["ancestry"], :name => "index_pages_on_ancestry"
+  add_index "pages", ["slug"], :name => "index_pages_on_slug"
 
   create_table "subscribers", :force => true do |t|
     t.string    "name",       :limit => 250, :null => false

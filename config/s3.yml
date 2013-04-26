@@ -1,0 +1,11 @@
+development:
+ access_key_id: 1GC45WGN9VTQC7TK9RR2
+ secret_access_key: StP/K+QFPPuxaA1vK4/mOhoU2JPSjRxieRQNqq0h
+ s3_host_alias: pikeplacemarket.s3.amazonaws.com
+ bucket: pikeplacemarket
+
+production:
+ access_key_id: 1GC45WGN9VTQC7TK9RR2
+ secret_access_key: StP/K+QFPPuxaA1vK4/mOhoU2JPSjRxieRQNqq0h
+ s3_host_alias: pikeplacemarket.s3.amazonaws.com
+ bucket: pikeplacemarket

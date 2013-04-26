@@ -4,6 +4,12 @@ PikeplacemarketOrg::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
+  mount Editables::Engine, at: "/editables"
+
+  resources :pages, only: [:show]
+  resources :merchants, only: [:show, :index]
+  resources :events, only: [:show, :index]
+
   root :to => "static#home"
 
 end

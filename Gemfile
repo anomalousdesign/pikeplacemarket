@@ -10,9 +10,18 @@ gem 'haml'
 gem 'devise'
 gem 'simple_form'
 gem 'rails_admin'
+gem 'rails_admin_nestable'
+gem 'rails_admin_toggleable'
 # gem 'rich'
 gem 'jquery-rails'
 gem 'acts-as-taggable-on'
+gem 'friendly_id'
+gem 'ancestry'
+gem 'editables'#, path: "~/rails/editables"
+gem 'twitter-bootstrap-rails'
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'dalli'
 
 group :test do
 	gem 'rspec'  

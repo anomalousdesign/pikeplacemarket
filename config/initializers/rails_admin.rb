@@ -56,20 +56,42 @@ RailsAdmin.config do |config|
         field :publish, :toggle
       end
     end
-    
-    # All models rails_admin 4
-    config.models.each do |m|
-      config.model m do
-        fields_of_type :text do
-          # bootstrap_wysihtml5 = true
-          ckeditor true
-          ckeditor_base_location '/ckeditor/'
-        end 
-        fields_of_type :tag_list do
-          partial 'tag_list_with_suggestions'
-        end
+
+    config.model Event do
+      fields_of_type :text do
+        # bootstrap_wysihtml5 = true
+        ckeditor true
+        ckeditor_base_location '/ckeditor/'
+      end 
+      edit do
+        exclude_fields :slug
       end
     end
+
+    config.model Merchant do
+      fields_of_type :text do
+        # bootstrap_wysihtml5 = true
+        ckeditor true
+        ckeditor_base_location '/ckeditor/'
+      end
+      edit do
+        exclude_fields :tags
+      end
+    end
+    
+    # All models rails_admin 4
+    # config.models.each do |m|
+    #   config.model m do
+    #     fields_of_type :text do
+    #       # bootstrap_wysihtml5 = true
+    #       ckeditor true
+    #       ckeditor_base_location '/ckeditor/'
+    #     end 
+    #     fields_of_type :tag_list do
+    #       partial 'tag_list_with_suggestions'
+    #     end
+    #   end
+    # end
     
     # rails_admin 3
     # config.models do

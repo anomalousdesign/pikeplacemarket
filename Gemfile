@@ -12,7 +12,6 @@ gem 'simple_form'
 gem 'rails_admin'
 gem 'rails_admin_nestable'
 gem 'rails_admin_toggleable'
-# gem 'rich'
 gem 'jquery-rails'
 gem 'acts-as-taggable-on'
 gem 'friendly_id'
@@ -41,8 +40,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

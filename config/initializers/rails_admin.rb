@@ -78,7 +78,7 @@ RailsAdmin.config do |config|
         partial 'tag_list_with_suggestions'
       end
       edit do
-        exclude_fields :tags, :map_x, :map_y
+        exclude_fields :tags, :map_x, :map_y, :slug
       end
     end
     

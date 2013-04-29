@@ -74,8 +74,11 @@ RailsAdmin.config do |config|
         ckeditor true
         ckeditor_base_location '/ckeditor/'
       end
+      fields_of_type :tag_list do
+        partial 'tag_list_with_suggestions'
+      end
       edit do
-        exclude_fields :tags
+        exclude_fields :tags, :map_x, :map_y
       end
     end
     

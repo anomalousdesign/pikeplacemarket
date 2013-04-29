@@ -52,7 +52,15 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    columnize (0.3.6)
     dalli (2.6.2)
+    debugger (1.2.4)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.1.1)
+      debugger-ruby_core_source (~> 1.1.7)
+    debugger-linecache (1.1.2)
+      debugger-ruby_core_source (>= 1.1.1)
+    debugger-ruby_core_source (1.1.9)
     devise (2.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -148,6 +156,9 @@ GEM
       rails (>= 3.1)
       rails_admin
       sass-rails
+    rails_admin_tag_list (0.1.5)
+      rails (>= 3.1)
+      rails_admin (>= 0.0.1)
     rails_admin_toggleable (0.2.0)
     railties (3.2.11)
       actionpack (= 3.2.11)
@@ -215,6 +226,7 @@ DEPENDENCIES
   aws-sdk
   coffee-rails (~> 3.2.1)
   dalli
+  debugger
   devise
   editables
   factory_girl_rails
@@ -226,6 +238,7 @@ DEPENDENCIES
   rails (= 3.2.11)
   rails_admin
   rails_admin_nestable
+  rails_admin_tag_list
   rails_admin_toggleable
   rspec
   rspec-rails

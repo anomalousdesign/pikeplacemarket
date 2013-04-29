@@ -5,12 +5,14 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'debugger'
 gem 'pg'
 gem 'haml'
 gem 'devise'
 gem 'simple_form'
 gem 'rails_admin'
 gem 'rails_admin_nestable'
+gem 'rails_admin_tag_list'
 gem 'rails_admin_toggleable'
 gem 'jquery-rails'
 gem 'acts-as-taggable-on'
@@ -52,9 +54,3 @@ end
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
-
-
-gem "devise"

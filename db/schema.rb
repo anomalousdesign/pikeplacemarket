@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429152328) do
+ActiveRecord::Schema.define(:version => 20130501141453) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -64,6 +64,24 @@ ActiveRecord::Schema.define(:version => 20130429152328) do
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug"
+
+  create_table "merchant_categories", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "ancestry"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "merchant_categorizations", :force => true do |t|
+    t.integer  "merchant_id"
+    t.integer  "merchant_category_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "merchant_categorizations", ["merchant_id", "merchant_category_id"], :name => "index_merchant_categorizations_on_ids"
 
   create_table "merchants", :force => true do |t|
     t.string   "title",           :limit => 100, :null => false

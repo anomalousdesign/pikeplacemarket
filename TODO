@@ -1,9 +1,15 @@
 Gabe
-- Install Acts As Taggable On
-- Migrate old merchant tags
 - Photo Gallery Management
 - Add images through RailsAdmin
 - Nav Groups
+- Front-End admin toolbar for template switching and getting back to admin
+- Use button for image replacement
+- Dropzone for image upload
+- Custom crop for image upload - see railscast on jcrop paperclip
 
 Mark
 - HTML implementation
+
+DONE
+- Install Acts As Taggable On
+- Migrate old merchant tags

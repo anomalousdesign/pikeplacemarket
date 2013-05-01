@@ -1,10 +1,13 @@
 class Merchant < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
-  acts_as_taggable
-  acts_as_taggable_on :tags
-  attr_accessible :tag_list # for acts as taggable on
-  attr_protected # make all fields accessible
+  
+  # acts_as_taggable
+  # acts_as_taggable_on :tags
+  # attr_accessible :tag_list # for acts as taggable on
+
+  has_many :merchant_categorizations
+  has_many :merchant_categories, through: :merchant_categorizations
 
   def self.migrate_old_tags
 	  self.all.each do |merchant|

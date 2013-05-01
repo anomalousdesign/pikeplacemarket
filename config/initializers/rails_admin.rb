@@ -11,7 +11,7 @@ RailsAdmin.config do |config|
     # config.authenticate_with { authenticate_admin! }
     # config.current_user_method { current_admin } # auto-generated
   
-    # config.excluded_models = []
+    config.excluded_models = [OldTag, MerchantCategorization]
 
     # If you want to track changes on your models:
     # config.audit_with :history, Admin
@@ -54,6 +54,15 @@ RailsAdmin.config do |config|
       list do
         fields :title, :template
         field :publish, :toggle
+      end
+    end
+
+    config.model MerchantCategory do
+      nestable_tree({
+        position_field: :position
+      })
+      edit do
+        exclude_fields :ancestry, :slug, :position
       end
     end
 

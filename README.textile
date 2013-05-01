@@ -1,8 +1,8 @@
-h1. Todo
+h1. Docs
 
-* rich
-* rails_admin
-* pg
+* https://github.com/sferik/rails_admin
+* http://ckeditor.com
+* http://twitter.github.io/bootstrap
 
 h1. Setup
 

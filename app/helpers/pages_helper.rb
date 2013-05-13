@@ -1,15 +1,5 @@
 module PagesHelper
 
-	# def nested_nav
-	# 	str = "<ul>"
-	# 	Page.where("ancestry is null").each do |page|
-	# 		str += "<li>"
-	# 		page.children.each do |child|
-	# 		end
-	# 	end
-	# 	str += "</ul>"
-	# end
-
 	def breadcrumb(page)
     html = ""
     while page = page.parent
@@ -20,6 +10,7 @@ module PagesHelper
   
   def page_nav(args = {})
   	args[:pages] ||= Page.live.where("ancestry is ?", nil)
+    args[:pages] = args[:pages].order("position")
     html = ""
   	html << "<ul class='#{ args[:class] || "" }'>"
   	if args[:include_home]

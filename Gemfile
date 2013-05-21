@@ -18,7 +18,7 @@ gem 'jquery-rails'
 gem 'acts-as-taggable-on'
 gem 'friendly_id'
 gem 'ancestry'
-gem 'editables'#, path: "~/rails/editables"
+gem 'editables' #, path: "~/rails/editables"
 gem 'twitter-bootstrap-rails'
 gem 'paperclip'
 gem 'aws-sdk'

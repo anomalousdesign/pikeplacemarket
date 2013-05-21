@@ -3,9 +3,13 @@ font-family: 'Fjalla One', sans-serif;
 font-family: 'Sanchez', serif;
 font-family: 'Quattrocento Sans', sans-serif;
 */
+
 body{
 	border-top: solid 15px #b2de9a;
 	font-family: 'Quattrocento Sans', sans-serif;
+}
+h1, h2, h3, h4{
+	font-family: 'Sanchez', serif;
 }
 .logo-header{
 	padding: 20px 0;
@@ -53,7 +57,7 @@ ul.tags{
 		font-size: 1.6em;
 		text-transform: uppercase;
 		padding: 0 15px 0 5px;
-		margin: 6px 20px 5px 0;
+		margin: 6px 15px 5px 0;
 		border-left: solid 1px #f28b00;
 		background: url(/assets/header-nav-down-arrow.gif) right center no-repeat;
 	}
@@ -117,6 +121,13 @@ ul.tags{
 footer{
 	background: #c23c33;
 	color:#fff;
+	padding: 20px 0;
+	.navbar{
+		overflow: auto;
+		width:790px;
+		padding: 0 30px;
+		background: url(/assets/footer-banner.png) no-repeat center center;
+	}
 	.navbar .nav>li>a{
 		color: #fff;
 		text-shadow: none;
@@ -126,5 +137,23 @@ footer{
 	.navbar .nav>li>a:hover, .nav>li>a.active{
 		color: #fff;
 		opacity:0.5;
+	}
+	.copyright{
+		font-size: .8em;
+		line-height: 1.1em;
+		float: left;
+		margin-left: -100px;
+		margin-right: 30px;
+	}
+}
+.market-directory-searchbox{
+	margin-top: -14px;
+	position: absolute;
+	z-index: 1000;
+	background: #f28b00;
+	min-height:200px;
+	width:261px;
+	img{
+		max-width: none;
 	}
 }

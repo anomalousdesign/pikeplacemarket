@@ -1,11 +1,20 @@
-%h1 Home
-
-= editable_image_tag "homepage-header", 800, 200
+= editable_image_tag "homepage-slideshow", 710, 445
 
 %hr
 
-= editable "Homepage Body" do
-	%p 
+= editable "Homepage Header" do
+	%center
+		%h4.orange 
+			Nulla vitae elit libero, a pharetra augue. 
+			%br
+			Donec ullamcorper nulla non metus auctor fringilla.
+
+%hr.red
+%h1.red Headline Here
+.row-fluid
+	.span4
+		= editable_image_tag "homepage-thumb", 260, 200
+	.span8
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

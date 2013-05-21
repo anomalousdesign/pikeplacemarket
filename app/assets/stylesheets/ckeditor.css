@@ -1,0 +1,15 @@
+/* http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Styles */
+
+hr{	border-top: 7px #e7e7e6 solid; }
+
+/* COLORS */
+.orange{ color: #f28b00; }
+.yellow{ color: #eec773; }
+.green{ color: #91c376; }
+.red{ color: #b12029; }
+
+/* HRULES */
+hr.orange{ border-color: #f28b00; }
+hr.yellow{ border-color: #f6cb6c; }
+hr.green{ border-color: #bbe2a6; }
+hr.red{ border-color: #cd5f58; }

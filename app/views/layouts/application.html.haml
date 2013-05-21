@@ -33,12 +33,21 @@
 			= page_nav pages: Page.find("secondary").children, class: 'nav'
 		.content
 			.body
-				= image_tag "http://placehold.it/710x445", width: "100%"
 				= yield
 			.sidebar
+				.market-directory-searchbox
+					= image_tag "market-directory-pointer.png", width: 276
 				sidebar
+				RSS Feed http://blog.pikeplacemarket.org/rss
 
 	%footer
 		.container
+			.copyright
+				&copy; 2013 Pike Place Market PDA
+				%br
+				Designed by DEI Creative
+				%br
+				Powered by Soapbox CMS
+
 			.navbar
 				= page_nav pages: Page.find("footer").children, class: 'footer nav'

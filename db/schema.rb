@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501141453) do
+ActiveRecord::Schema.define(:version => 20130524164541) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -53,13 +53,13 @@ ActiveRecord::Schema.define(:version => 20130501141453) do
   add_index "editables", ["name"], :name => "index_editables_on_name"
 
   create_table "events", :force => true do |t|
-    t.string   "title",      :limit => 250, :null => false
-    t.datetime "start",                     :null => false
-    t.datetime "end",                       :null => false
-    t.text     "details",                   :null => false
-    t.boolean  "featured",                  :null => false
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.string   "title"
+    t.datetime "start"
+    t.datetime "end"
+    t.text     "details"
+    t.boolean  "featured"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "slug"
   end
 
@@ -84,21 +84,21 @@ ActiveRecord::Schema.define(:version => 20130501141453) do
   add_index "merchant_categorizations", ["merchant_id", "merchant_category_id"], :name => "index_merchant_categorizations_on_ids"
 
   create_table "merchants", :force => true do |t|
-    t.string   "title",           :limit => 100, :null => false
-    t.string   "sub_title",       :limit => 100, :null => false
-    t.string   "phone",           :limit => 20,  :null => false
-    t.string   "address",         :limit => 250, :null => false
-    t.string   "city",            :limit => 100, :null => false
-    t.string   "state",           :limit => 100, :null => false
-    t.string   "zip",             :limit => 20,  :null => false
-    t.string   "email",           :limit => 200, :null => false
-    t.string   "link",            :limit => 250, :null => false
-    t.string   "hours",           :limit => 100, :null => false
-    t.string   "market_location", :limit => 200, :null => false
-    t.text     "about",                          :null => false
-    t.text     "tags",                           :null => false
-    t.integer  "map_x",                          :null => false
-    t.integer  "map_y",                          :null => false
+    t.string   "title",           :limit => 100
+    t.string   "sub_title",       :limit => 100
+    t.string   "phone",           :limit => 20
+    t.string   "address",         :limit => 250
+    t.string   "city",            :limit => 100
+    t.string   "state",           :limit => 100
+    t.string   "zip",             :limit => 20
+    t.string   "email",           :limit => 200
+    t.string   "link",            :limit => 250
+    t.string   "hours",           :limit => 100
+    t.string   "market_location", :limit => 200
+    t.text     "about"
+    t.text     "tags"
+    t.integer  "map_x"
+    t.integer  "map_y"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.string   "slug"
@@ -113,12 +113,12 @@ ActiveRecord::Schema.define(:version => 20130501141453) do
   end
 
   create_table "pages", :force => true do |t|
-    t.boolean  "publish",                    :default => false, :null => false
-    t.integer  "position",                   :default => 0,     :null => false
-    t.string   "template",    :limit => 100, :default => "",    :null => false
-    t.string   "title",                      :default => "",    :null => false
-    t.text     "keywords",                                      :null => false
-    t.text     "description",                                   :null => false
+    t.boolean  "publish",                    :default => false
+    t.integer  "position",                   :default => 0
+    t.string   "template",    :limit => 100, :default => ""
+    t.string   "title",                      :default => ""
+    t.text     "keywords"
+    t.text     "description"
     t.string   "link"
     t.datetime "live_start"
     t.datetime "live_end"
@@ -132,10 +132,10 @@ ActiveRecord::Schema.define(:version => 20130501141453) do
   add_index "pages", ["slug"], :name => "index_pages_on_slug"
 
   create_table "subscribers", :force => true do |t|
-    t.string    "name",       :limit => 250, :null => false
-    t.string    "email",      :limit => 250, :null => false
-    t.datetime  "created_at",                :null => false
-    t.timestamp "updated_at", :limit => 6,   :null => false
+    t.string   "name",       :limit => 250, :null => false
+    t.string   "email",      :limit => 250, :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "taggings", :force => true do |t|

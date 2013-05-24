@@ -149,11 +149,29 @@ footer{
 .market-directory-searchbox{
 	margin-top: -14px;
 	position: absolute;
-	z-index: 1000;
+	z-index: 999;
 	background: #f28b00;
 	min-height:200px;
 	width:261px;
 	img{
 		max-width: none;
 	}
+}
+/*.dropdown-menu{
+	padding: 0px;
+	border:none;
+	background: none;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	min-width: none;
+}*/
+.nav>.dropdown-submenu>a:after{
+	border: none;
+}
+.nav>.dropdown-submenu>.dropdown-menu{
+	/*margin-top: 29px;*/
+	/*margin-left: -160px;*/
+	left: 0;
+	top: 35px;
 }

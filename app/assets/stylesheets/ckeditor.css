@@ -7,6 +7,7 @@ hr{	border-top: 7px #e7e7e6 solid; }
 .yellow{ color: #eec773; }
 .green{ color: #91c376; }
 .red{ color: #b12029; }
+.grey{ color: #777; }
 
 /* HRULES */
 hr.orange{ border-color: #f28b00; }

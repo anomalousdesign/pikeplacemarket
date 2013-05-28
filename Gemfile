@@ -23,6 +23,11 @@ gem 'twitter-bootstrap-rails'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'dalli'
+gem 'nokogiri'
+
+group :development do
+	gem 'quiet_assets'
+end
 
 group :test do
 	gem 'rspec'  

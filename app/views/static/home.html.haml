@@ -10,15 +10,18 @@
 			Donec ullamcorper nulla non metus auctor fringilla.
 
 %hr.red
-%h1.red Headline Here
-.row-fluid
-	.span4
-		= editable_image_tag "homepage-thumb", 260, 200
-	.span8
-		= editable "Homepage Body" do
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%img.tag{src:"/assets/tag-clock.png"}
+%h2.red.tag-headline Headline Here
+%br
+.indent
+	.row-fluid
+		.span4
+			= editable_image_tag "homepage-thumb", 260, 200
+		.span8
+			= editable "Homepage Body" do
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

@@ -115,7 +115,14 @@ ul.tags{
 	.sidebar{
 		float: left;
 		width:260px;
-		margin-left: 10px
+		margin-left: 10px;
+		.indent{
+			font-size: .9em;
+			color: #777;
+			li, p{
+				line-height: 1.3em;
+			}
+		}
 	}
 }
 footer{
@@ -128,11 +135,21 @@ footer{
 		padding: 0 30px;
 		background: url(/assets/footer-banner.png) no-repeat center center;
 	}
+	.navbar .nav>li{
+		border-right: solid 1px #c94546;
+		padding-right: 10px;	
+	}
+	.navbar .nav>li:last-child{
+		padding-right: 0;
+		border: none;
+	}
 	.navbar .nav>li>a{
 		color: #fff;
 		text-shadow: none;
 		font-family: 'Sanchez', serif;
 		font-size: 1.2em; 
+		padding-right: 25px;
+		background: url(/assets/footer-arrow.png) right center no-repeat;
 	}
 	.navbar .nav>li>a:hover, .nav>li>a.active{
 		color: #fff;
@@ -151,10 +168,20 @@ footer{
 	position: absolute;
 	z-index: 999;
 	background: #f28b00;
-	min-height:200px;
 	width:261px;
 	img{
 		max-width: none;
+	}
+	form{
+		padding: 10px 20px;
+		margin-bottom: 0px;
+		color: #fff;
+		strong{
+			display: block;
+			font-size: .9em;
+			text-transform: uppercase;
+			margin-bottom: 5px;
+		}
 	}
 }
 /*.dropdown-menu{
@@ -174,4 +201,38 @@ footer{
 	/*margin-left: -160px;*/
 	left: 0;
 	top: 35px;
+}
+.body, .sidebar{
+	padding-bottom: 20px;
+}
+ul.feed{
+	list-style: none;
+	margin-left:0;
+	padding-left: 0;
+	padding-bottom: 20px;
+	li{
+		margin-left: 100px;
+		margin-top: 20px;
+		min-height: 55px;
+		img{
+			float:left;
+			width:90px;
+			margin-left: -100px
+		}
+	}
+}
+.indent{
+	padding-left: 15px;
+}
+a.arrow{
+	display: inline-block;
+	padding-right: 20px;
+	background: url(/assets/small-arrow.png) right center no-repeat;
+}
+img.tag{
+	float: left;
+	margin: -28px 15px 10px 15px;
+}
+.tag-headline{
+	margin-top: -10px;
 }

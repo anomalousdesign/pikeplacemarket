@@ -18,9 +18,10 @@ module PagesHelper
 	  	html << "<li class='home'><a href='/'>#{args[:home_label]}</a></li>"
 	  end
     args[:pages].each do |page|
-      html << "<li class='#{page.label.gsub(" ","_").downcase} #{!page.children.empty? && args[:menu].nil? ? "dropdown-submenu" : ""}'>"
+      is_dropdown = !page.children.empty? && args[:menu].nil?
+      html << "<li class='#{page.label.gsub(" ","_").downcase} #{is_dropdown ? "dropdown-submenu" : ""}'>"
       html << link_to(page.label, page_path(page))
-      html << page_nav(pages: page.children, class: "dropdown-menu") if !page.children.empty?
+      html << page_nav(pages: page.children, class: (is_dropdown ? "dropdown-menu" : "")) if !page.children.empty?
       html << "</li>"
     end
     html << "</ul>"

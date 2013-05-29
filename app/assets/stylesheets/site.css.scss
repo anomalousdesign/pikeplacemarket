@@ -112,10 +112,17 @@ ul.tags{
 		float:left;
 		width:710px;
 	}
+	.sidebar.pad{
+		width:240px;
+		padding: 0 10px;
+	}
 	.sidebar{
 		float: left;
 		width:260px;
 		margin-left: 10px;
+		img{
+			margin-bottom: 10px;
+		}
 		.indent{
 			font-size: .9em;
 			color: #777;
@@ -129,19 +136,36 @@ ul.tags{
 			text-align: center;
 		}
 		.nav{
+			min-height: 275px;
 			text-align: center;
 			a{
 				font-family: 'Sanchez', serif;
 				color:#b12029;
-				padding: 5px;
+				padding: 7px;
 				font-weight: bold;
 				font-style: italic;
 			}
-			a:hover{
-				background: #eee;
+			a:hover, a.active{
+				background: #fff;
+				color:#f28b00;
+				text-decoration: none;
 			}
 			li{
 				border-top: solid 1px #b12029;
+				ul{
+					list-style: none;
+					padding:0px;
+					margin:0;
+					padding-bottom: 5px;
+					li{
+						border:none;
+						a{
+							display: block;
+							font-size: .9em;
+							padding: 4px;
+						}
+					}
+				}
 			}
 		} 
 	}
@@ -202,6 +226,19 @@ footer{
 			font-size: .9em;
 			text-transform: uppercase;
 			margin-bottom: 5px;
+		}
+		select{
+			border: none;
+			color:#fff;
+			-webkit-appearance: none;
+			line-height: 1em;
+			text-transform: uppercase;
+			font-family: 'Quattrocento Sans', sans-serif;
+			background: #f5c65d url(/assets/select-arrow.png) right center no-repeat;
+		}
+		input{
+			border: none;
+			background: #fff url(/assets/search-arrow.png) right center no-repeat;	
 		}
 	}
 }

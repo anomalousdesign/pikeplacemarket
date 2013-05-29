@@ -1,6 +1,6 @@
 .body
 
-	= editable_image_tag "page-#{@page.id}-header", 800, 400
+	= editable_image_tag "page-#{@page.id}-header", 720, 340
 
 	%hr.red
 	%h1.red
@@ -15,8 +15,19 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-.sidebar
+.sidebar.pad
 	- top = @page.ancestors[1] || @page rescue @page
 	%h3.orange
 		= top.title
 	= page_nav pages: top.children, class: 'nav', menu: false
+
+	%hr.green
+	%img.tag{src:"/assets/tag-cherries.png"}
+	%h4.green.tag-headline Farmer Spotlight
+	.indent
+		= editable_image_tag "farmer-spotlight", 300, 150
+		%br
+		%strong.red Quam Elit Aenean Tristique et ala 
+		%p 
+			Nullam Vehicula Bibendum Erets Donec id elit non mi porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. 
+			%a.red.arrow{href:"#"} READ MORE

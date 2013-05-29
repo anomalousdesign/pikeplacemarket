@@ -43,11 +43,11 @@
 				%option Cat 1
 				%option Cat 2
 
-	%hr.green{style:"margin-top:210px"}
+	%hr.green{style:"margin-top:220px"}
 	%img.tag{src:"/assets/tag-tumbler.png"}
 	%h4.green.tag-headline Tumbler Feed
 	= cache "tumbler feed", expires_in: 1.hour do
-		.indent
+		.indent{style:"min-height: 255px;"}
 			- doc = Nokogiri::HTML(open('http://blog.pikeplacemarket.org/rss'))
 			%ul.feed
 				- doc.css("item")[0..2].each do |item|
@@ -69,7 +69,6 @@
 	%h4.yellow.tag-headline Market Spotlight
 	.indent
 		= editable_image_tag "homepage-thumb", 240, 140
-		%br
 		%br
 		= editable "Sidebar Spotlight 2" do
 			%strong.red Quam Elit Aenean Tristique Commodo

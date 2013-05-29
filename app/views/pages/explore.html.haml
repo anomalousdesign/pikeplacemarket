@@ -1,10 +1,10 @@
 .body
-
-	= editable_image_tag "page-#{@page.id}-header", 800, 400
-
-	%hr.red
-	%h1.red
+	%h1
 		= @page.title
+
+	= editable_image_tag "page-#{@page.id}-header", 800, 200
+
+	%hr
 
 	= editable "Page #{@page.id} Body" do
 		%p 
@@ -16,7 +16,3 @@
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 .sidebar
-	- top = @page.ancestors[1] || @page rescue @page
-	%h3.orange
-		= top.title
-	= page_nav pages: top.children, class: 'nav', menu: false

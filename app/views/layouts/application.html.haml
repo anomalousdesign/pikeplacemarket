@@ -32,54 +32,7 @@
 		.navbar.secondary
 			= page_nav pages: Page.find("secondary").children, class: 'nav'
 		.content
-			.body
-				= yield
-			.sidebar
-				.market-directory-searchbox
-					= image_tag "market-directory-pointer.png", width: 276
-					%form
-						%strong Quick Search By:
-						%input{name: "keyword", type: "text"}
-						%select{name: "category"}
-							%option Category
-							%option Cat 1
-							%option Cat 2
-						%select{name: "Location"}
-							%option Location
-							%option Cat 1
-							%option Cat 2
-
-				%hr.green{style:"margin-top:210px"}
-				%img.tag{src:"/assets/tag-tumbler.png"}
-				%h4.green.tag-headline Tumbler Feed
-				.indent
-					- doc = Nokogiri::HTML(open('http://blog.pikeplacemarket.org/rss'))
-					%ul.feed
-						- doc.css("item")[0..2].each do |item|
-							%li
-								- if item.css("description").first.content.match("<img")
-									%a{href: item.css("link").first.content}
-										= image_tag item.css("description").first.content.split("<img src=\"")[1].split('"').first
-								%strong
-									%a.grey{href: item.css("link").first.content}
-										= item.css("title").first.content
-								/ %p 
-								/ 	= item.css("description").first.content.gsub(%r{</?[^>]+?>}, '').split(" ")[0..10].join(" ")
-								/ 	\...
-								%a.more.pull-right.red.arrow{href: item.css("link").first.content}
-									Read More
-
-				%hr.yellow
-				%img.tag{src:"/assets/tag-fish.png"}
-				%h4.yellow.tag-headline Market Spotlight
-				.indent
-					= editable_image_tag "homepage-thumb", 240, 140
-					%br
-					%br
-					= editable "Sidebar Spotlight 2" do
-						%strong.red Quam Elit Aenean Tristique Commodo
-						%p Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus alique...
-						%a.red.arrow{href: "#"} Read More
+			= yield
 
 	%footer
 		.container
@@ -87,8 +40,6 @@
 				&copy; 2013 Pike Place Market PDA
 				%br
 				Designed by DEI Creative
-				%br
-				Powered by Soapbox CMS
 
 			.navbar
 				= page_nav pages: Page.find("footer").children, class: 'footer nav'

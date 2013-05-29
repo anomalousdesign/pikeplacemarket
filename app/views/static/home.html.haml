@@ -1,27 +1,77 @@
-= editable_image_tag "homepage-slideshow", 710, 445
+.body
+	= editable_image_tag "homepage-slideshow", 710, 445
 
-%hr
+	%hr
 
-= editable "Homepage Header" do
-	%center
-		%h4.orange 
-			Nulla vitae elit libero, a pharetra augue. 
-			%br
-			Donec ullamcorper nulla non metus auctor fringilla.
+	= editable "Homepage Header" do
+		%center
+			%h4.orange 
+				Nulla vitae elit libero, a pharetra augue. 
+				%br
+				Donec ullamcorper nulla non metus auctor fringilla.
 
-%hr.red
-%img.tag{src:"/assets/tag-clock.png"}
-%h2.red.tag-headline Headline Here
-%br
-.indent
-	.row-fluid
-		.span4
-			= editable_image_tag "homepage-thumb", 260, 200
-		.span8
-			= editable "Homepage Body" do
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	%hr.red
+	%img.tag{src:"/assets/tag-clock.png"}
+	%h2.red.tag-headline Headline Here
+	%br
+	.indent
+		.row-fluid
+			.span4
+				= editable_image_tag "homepage-thumb", 260, 200
+			.span8
+				= editable "Homepage Body" do
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	
+
+.sidebar
+	.market-directory-searchbox
+		= image_tag "market-directory-pointer.png", width: 276
+		%form
+			%strong Quick Search By:
+			%input{name: "keyword", type: "text"}
+			%select{name: "category"}
+				%option Category
+				%option Cat 1
+				%option Cat 2
+			%select{name: "Location"}
+				%option Location
+				%option Cat 1
+				%option Cat 2
+
+	%hr.green{style:"margin-top:210px"}
+	%img.tag{src:"/assets/tag-tumbler.png"}
+	%h4.green.tag-headline Tumbler Feed
+	= cache "tumbler feed", expires_in: 1.hour do
+		.indent
+			- doc = Nokogiri::HTML(open('http://blog.pikeplacemarket.org/rss'))
+			%ul.feed
+				- doc.css("item")[0..2].each do |item|
+					%li
+						- if item.css("description").first.content.match("<img")
+							%a{href: item.css("link").first.content}
+								= image_tag item.css("description").first.content.split("<img src=\"")[1].split('"').first
+						%strong
+							%a.grey{href: item.css("link").first.content}
+								= item.css("title").first.content
+						/ %p 
+						/ 	= item.css("description").first.content.gsub(%r{</?[^>]+?>}, '').split(" ")[0..10].join(" ")
+						/ 	\...
+						%a.more.pull-right.red.arrow{href: item.css("link").first.content}
+							Read More
+
+	%hr.yellow
+	%img.tag{src:"/assets/tag-fish.png"}
+	%h4.yellow.tag-headline Market Spotlight
+	.indent
+		= editable_image_tag "homepage-thumb", 240, 140
+		%br
+		%br
+		= editable "Sidebar Spotlight 2" do
+			%strong.red Quam Elit Aenean Tristique Commodo
+			%p Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus alique...
+			%a.red.arrow{href: "#"} Read More

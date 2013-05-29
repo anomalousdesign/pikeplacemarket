@@ -123,6 +123,27 @@ ul.tags{
 				line-height: 1.3em;
 			}
 		}
+		h3{
+			text-transform: uppercase;
+			font-family: 'Fjalla One', sans-serif;
+			text-align: center;
+		}
+		.nav{
+			text-align: center;
+			a{
+				font-family: 'Sanchez', serif;
+				color:#b12029;
+				padding: 5px;
+				font-weight: bold;
+				font-style: italic;
+			}
+			a:hover{
+				background: #eee;
+			}
+			li{
+				border-top: solid 1px #b12029;
+			}
+		} 
 	}
 }
 footer{

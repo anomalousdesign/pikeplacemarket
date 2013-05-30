@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130524164541) do
+ActiveRecord::Schema.define(:version => 20130530040708) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -113,10 +113,10 @@ ActiveRecord::Schema.define(:version => 20130524164541) do
   end
 
   create_table "pages", :force => true do |t|
-    t.boolean  "publish",                    :default => false
-    t.integer  "position",                   :default => 0
-    t.string   "template",    :limit => 100, :default => ""
-    t.string   "title",                      :default => ""
+    t.boolean  "publish",                             :default => false
+    t.integer  "position",                            :default => 0
+    t.string   "template",             :limit => 100, :default => ""
+    t.string   "title",                               :default => ""
     t.text     "keywords"
     t.text     "description"
     t.string   "link"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20130524164541) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
+    t.integer  "merchant_category_id"
   end
 
   add_index "pages", ["ancestry"], :name => "index_pages_on_ancestry"

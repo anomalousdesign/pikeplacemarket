@@ -18,6 +18,12 @@ h1, h2, h3, h4{
 	margin-top: 73px;
 	clear:right;
 }
+hr.edges{
+	border: none;
+	background: url(/assets/hr-edges.png) center center no-repeat;
+	height:20px;
+	clear: both;
+}
 ul.tags{
 	float: right;
 	margin-top: -15px;
@@ -287,10 +293,45 @@ a.arrow{
 	padding-right: 20px;
 	background: url(/assets/small-arrow.png) right center no-repeat;
 }
+a.arrow-white{
+	background: url(/assets/small-arrow-white.png) right center no-repeat;
+}
 img.tag{
 	float: left;
 	margin: -28px 15px 10px 15px;
 }
 .tag-headline{
 	margin-top: -10px;
+}
+.info-thumb .info{
+	background: #a1d784;
+	opacity:.8;
+	padding:10px;
+	padding-top: 0;
+	margin-top: -45px;
+	height:35px;
+	overflow: hidden;
+	color: #fff;
+	a{
+		color: #fff;
+	}
+	h3{
+		line-height: 1em;
+	}
+}
+.accordion-heading{
+	background: #91c376;
+	a{
+		color: #fff;
+		font-weight: bold;
+	}
+	a:hover{
+		text-decoration: none;
+	}
+}
+.accordion-group:nth-child(even) .accordion-heading{
+	background:#bfd3a0;
+}
+.accordion-group .accordion-heading:hover{
+	background: #eec773;
 }

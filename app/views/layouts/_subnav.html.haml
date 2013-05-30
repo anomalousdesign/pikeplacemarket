@@ -1,0 +1,4 @@
+- top = @page.ancestors[1] || @page rescue @page
+%h3.orange
+	= top.title
+= page_nav pages: top.children, class: 'nav', menu: false

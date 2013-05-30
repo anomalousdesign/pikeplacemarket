@@ -1,10 +1,9 @@
 .body
-	%h1
+
+	%hr.red
+	%img.tag{src:"/assets/tag-beans.png"}
+	%h2.red.tag-header
 		= @page.title
-
-	= editable_image_tag "page-#{@page.id}-header", 800, 200
-
-	%hr
 
 	= editable "Page #{@page.id} Body" do
 		%p 
@@ -15,4 +14,23 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-.sidebar
+.sidebar.pad
+	= render "layouts/subnav"
+
+%hr.edges
+
+- (1..3).each do |row|
+	.row-fluid
+		- (1..3).each do |column|
+			- key = "thumb-#{@page.id}-#{row}-#{column}"
+			- next if Editables::Editable.find_by_name("#{key}-a").content.match("Lorem") && !current_admin
+			.span4.info-thumb
+				= editable_image_tag key, 310, 200
+				.info
+					= editable "#{key}-a" do
+						%h3 Title
+						%p 
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							%a.arrow.arrow-white{href:"#"} Learn More
+	%br

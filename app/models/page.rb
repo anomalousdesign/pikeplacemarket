@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
-  
+
+  belongs_to :merchant_category
   scope :live, lambda{ where("publish = ? or (live_start < ? and live_end > ?)", true, Time.zone.now, Time.zone.now) }
 
   has_ancestry

@@ -16,10 +16,7 @@
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 .sidebar.pad
-	- top = @page.ancestors[1] || @page rescue @page
-	%h3.orange
-		= top.title
-	= page_nav pages: top.children, class: 'nav', menu: false
+	= render "layouts/subnav"
 
 	%hr.green
 	%img.tag{src:"/assets/tag-cherries.png"}

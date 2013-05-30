@@ -23,7 +23,7 @@
 	.row-fluid
 		- (1..3).each do |column|
 			- key = "thumb-#{@page.id}-#{row}-#{column}"
-			- next if Editables::Editable.find_by_name("#{key}-a").content.match("Lorem") && !current_admin
+			- next if (Editables::Editable.find_by_name("#{key}-a").content.match("Lorem") rescue true) && !current_admin
 			.span4.info-thumb
 				= editable_image_tag key, 310, 200
 				.info

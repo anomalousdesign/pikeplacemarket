@@ -302,6 +302,8 @@ img.tag{
 }
 .tag-headline{
 	margin-top: -10px;
+	line-height: 1em;
+	margin-bottom: 20px;
 }
 .info-thumb .info{
 	background: #a1d784;
@@ -335,4 +337,9 @@ img.tag{
 }
 .accordion-group .accordion-heading:hover{
 	background: #eec773;
+}
+.btn-mini{
+	padding: 0 4px;
+	line-height: 1.6em;
+	opacity:.75;
 }

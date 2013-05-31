@@ -1,3 +1,64 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.event-item{
+	.date{
+		background: #af292e;
+		color:#fff;
+		padding:20px;
+		text-align: center;
+		font-family: 'Sanchez', serif;
+		height: 105px;
+	}
+	.weekday{
+		margin-top: 20px;
+		text-transform: uppercase;
+	}
+	.date-text{
+		font-size: 2em;
+		line-height: 1.5em;
+	}
+	.thumb{
+		border:solid 10px #eee;
+	}
+	.details td h4{
+		line-height: 1em;
+		margin:0;
+		font-size: 1em;
+		font-style: italic;
+		color: #000
+	}
+	.details td{
+		color: #999;
+	}
+	.details table{
+		margin-bottom: 10px;
+	}
+}
+form.events-index{
+	input{
+		border:solid 1px #91c376;
+		padding: 4px;
+		background: #fff url(/assets/search-arrow-green.png) right center no-repeat;
+	}
+	select{
+		border: none;
+		color:#fff;
+		-webkit-appearance: none;
+		line-height: 1em;
+		font-family: 'Quattrocento Sans', sans-serif;
+		background: #91c376 url(/assets/select-arrow-white.png) right center no-repeat;
+		border-radius: 0;
+	}
+	h4{
+		font-size: 1.1em;
+		font-style: italic;
+	}
+}
+a.submit-event{
+	display: block;
+	color: #fff;
+	padding:5px 10px 5px 40px;
+	background: url(/assets/icon-calendar.png) 5px 4px no-repeat #b12029;
+}
+a.submit-event:hover{
+	background-color:#91c376;
+	text-decoration: none;
+}

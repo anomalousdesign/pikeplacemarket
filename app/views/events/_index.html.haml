@@ -1,0 +1,58 @@
+%form.events-index
+	.row-fluid
+		.span4
+			%h4.green Search By
+			%input
+		.span4
+			%h4.green Sort By
+			%select
+				%option Category
+				- Event.tag_counts.each do |name, count|
+					%option
+						= name
+		.span4
+			%h4 &nbsp;
+			%a.submit-event{href:"#submit-event"} Submit An Event
+
+	%hr.thin.green
+	%h4.green Events
+	%hr.thin.green
+
+- Event.active.each do |event|
+	.event-item{class: event.tag_list.to_s.gsub(",","").underscore}
+		.row-fluid
+			.span3
+				.date
+					.weekday
+						= event.start.strftime("%A")
+					.date-text
+						= event.start.strftime("%d/%m")
+			.span4
+				.thumb
+					= editable_image_tag "event-#{event.id}-thumb", 210, 130
+			.span5
+				.details
+					%h4.red
+						= event.title
+					%table
+						%tr
+							%td
+								%h4
+									Date
+							%td
+								= event.start.strftime("%B %e, %Y")
+						%tr
+							%td
+								%h4
+									Time
+							%td
+								= "#{event.start.strftime("%l:%M %P")} - #{event.end.strftime("%l:%M %P")}"
+						%tr
+							%td
+								%h4
+									Place
+							%td
+								= event.location
+					%a.red.arrow{href:"/events/#{event.slug}"} Learn More
+					/ %a.red.pull-right{href:"#"} Add to Calendar
+		%hr.edges

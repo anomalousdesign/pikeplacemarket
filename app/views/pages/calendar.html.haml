@@ -1,0 +1,69 @@
+.body
+
+	%hr.red
+	%img.tag{src:"/assets/tag-clock.png"}
+	%h2.red.tag-headline Market Hours
+
+	%div{style:"height:245px; overflow:auto;"}
+		.indent
+			%br
+			= editable "market hours holiday" do
+				%p The Market is closed Thanksgiving, Christmas and New Year’s Day. 
+			.row-fluid
+				.span4
+					%h4.green General Hours
+					= editable "market hours general" do
+						%strong Farmers: 
+						9am – 4pm 
+						%br
+						%strong Crafts Market: 
+						10am – 4pm 
+						%br
+						%strong Seafood: 
+						7am – 6pm 
+						%br
+						%strong Market Shops: 
+						10am – 6pm 
+						%br
+						%strong Restaurants: 
+						varies 
+
+				.span8
+					%h4.green Summer Hours
+					= editable "market hours summer" do
+						%strong Farmers: 
+						8am – 5pm 
+						%br
+						%strong Crafts Market: 
+						Sun-Wed, 10am – 4pm  |  Thu-Sat , 10am – 5pm
+						%br
+						%strong Seafood: 
+						7am – 6pm 
+						%br
+						%strong Market Shops: 
+						10am – 7pm 
+						%br
+						%strong Restaurants: 
+						varies
+
+	%hr.red
+	%img.tag{src:"/assets/tag-clock.png"}
+	%h2.red.tag-headline Calendar &amp; Events
+
+	= render "events/index"
+
+
+.sidebar.pad
+	= render "layouts/subnav"
+
+	%hr.yellow
+	%img.tag{src:"/assets/tag-fish.png"}
+	%h4.yellow.tag-headline Market Facts
+	.indent
+		= editable_image_tag "farmer-spotlight", 300, 150
+		%br
+		%strong.red Quam Elit Aenean Tristique et ala 
+		%p 
+			Nullam Vehicula Bibendum Erets Donec id elit non mi porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. 
+			%a.red.arrow{href:"#"} READ MORE
+

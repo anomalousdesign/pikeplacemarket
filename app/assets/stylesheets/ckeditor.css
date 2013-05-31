@@ -1,6 +1,7 @@
 /* http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Styles */
 
 hr{	border-top: 7px #e7e7e6 solid; }
+hr.thin{border-width: 1px; margin:5px 0;}
 
 /* COLORS */
 .orange{ color: #f28b00; }

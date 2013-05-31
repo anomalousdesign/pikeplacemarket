@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530040708) do
+ActiveRecord::Schema.define(:version => 20130531150933) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20130530040708) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "slug"
+    t.string   "location"
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug"

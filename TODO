@@ -1,3 +1,7 @@
+- all templates
+add header icon to pages table - list of header icons
+add spotlight field to pages - render in sidebar
+
 Gabe
 - Photo Gallery Management
 - Add images through RailsAdmin

@@ -24,6 +24,32 @@ hr.edges{
 	height:20px;
 	clear: both;
 }
+a{
+	color: #b12029;
+}
+a:hover{
+	color: #91c376;
+}
+a.btn2{
+	display: inline-block;
+	padding: 7px 25px;
+	background: #ccc;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: .9em;
+	img{
+		margin-right: 5px;
+		margin-top: -4px;
+		margin-left: -5px;
+	}
+}
+a.btn2:hover{
+	text-decoration: none;
+	background: #999;
+}
+a.btn2-green{
+	background: #91c376;
+}
 ul.tags{
 	float: right;
 	margin-top: -15px;

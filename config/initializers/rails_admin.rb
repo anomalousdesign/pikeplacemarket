@@ -49,7 +49,7 @@ RailsAdmin.config do |config|
         position_field: :position
       })
       edit do
-        exclude_fields :ancestry, :slug, :position
+        exclude_fields :ancestry, :position
       end
       list do
         fields :title, :template

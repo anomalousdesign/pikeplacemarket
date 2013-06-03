@@ -34,25 +34,27 @@
 				.details
 					%h4.red
 						= event.title
-					%table
+
+					%table.event-details
 						%tr
 							%td
 								%h4
-									Date
+									Date:
 							%td
 								= event.start.strftime("%B %e, %Y")
 						%tr
 							%td
 								%h4
-									Time
+									Time:
 							%td
 								= "#{event.start.strftime("%l:%M %P")} - #{event.end.strftime("%l:%M %P")}"
 						%tr
 							%td
 								%h4
-									Place
+									Place:
 							%td
 								= event.location
+								
 					%a.red.arrow{href:"/events/#{event.slug}"} Learn More
 					/ %a.red.pull-right{href:"#"} Add to Calendar
 		%hr.edges

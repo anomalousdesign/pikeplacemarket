@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531150933) do
+ActiveRecord::Schema.define(:version => 20130603144857) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -58,10 +58,16 @@ ActiveRecord::Schema.define(:version => 20130531150933) do
     t.datetime "end"
     t.text     "details"
     t.boolean  "featured"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "slug"
     t.string   "location"
+    t.string   "business"
+    t.string   "address"
+    t.string   "url"
+    t.float    "price"
+    t.string   "contact"
+    t.string   "ticket_link"
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug"

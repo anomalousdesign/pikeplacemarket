@@ -18,18 +18,19 @@
 	.thumb{
 		border:solid 10px #eee;
 	}
-	.details td h4{
+}
+.event-details{
+	margin: 10px 0;
+	td h4{
 		line-height: 1em;
 		margin:0;
 		font-size: 1em;
 		font-style: italic;
-		color: #000
+		color: #000;
+		margin-right: 10px;
 	}
-	.details td{
+	td{
 		color: #999;
-	}
-	.details table{
-		margin-bottom: 10px;
 	}
 }
 form.events-index{

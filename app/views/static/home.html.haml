@@ -56,7 +56,7 @@
 							%a{href: item.css("link").first.content}
 								= image_tag item.css("description").first.content.split("<img src=\"")[1].split('"').first
 						%strong
-							%a.grey{href: item.css("link").first.content}
+							%a.grey{href: item.css("link").first.content }
 								= item.css("title").first.content
 						/ %p 
 						/ 	= item.css("description").first.content.gsub(%r{</?[^>]+?>}, '').split(" ")[0..10].join(" ")

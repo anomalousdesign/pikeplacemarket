@@ -7,7 +7,7 @@
 	/ - if @page.header_icon.present?
 	%img.tag{src:"/assets/tag-clock.png"}
 
-	%h1.red
+	%h1.red.tag-headline
 		= @page.title
 
 	= editable "Page #{@page.id} Body" do

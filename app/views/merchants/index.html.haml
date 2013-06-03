@@ -1,1 +1,45 @@
-index.html.haml
+.body
+
+	%hr.red
+	%img.tag{src:"/assets/tag-directory.png"}
+	%h1.red.tag-headline Market Directory
+
+	%form
+		.row-fluid
+			.span4
+				%h4.green Search By
+				%input
+			.span4
+				%h4.green Sort By
+				%select
+					%option Category
+					- MerchantCategory.main.each do |mc|
+						%option
+							= mc.name
+			.span4
+				%h4 &nbsp;
+				%select
+					%option Location
+					- Merchant.locations.each do |location|
+						%option
+							= location
+
+	= editable "Market Directory Intro" do
+		%p Sed posuere consectetur est at lobortis. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo.
+
+	- MerchantCategory.main.each do |mc|
+		
+
+.sidebar.pad
+
+	%hr.yellow
+	%img.tag{src:"/assets/tag-fish.png"}
+	%h4.yellow.tag-headline Farmer Spotlight
+	.indent
+		= editable_image_tag "market-facts", 300, 150
+		= editable "market-facts" do
+			%br
+			%strong.red Quam Elit Aenean Tristique et ala 
+			%p 
+				Nullam Vehicula Bibendum Erets Donec id elit non mi porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. 
+				%a.red.arrow{href:"#"} READ MORE

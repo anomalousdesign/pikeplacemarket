@@ -30,7 +30,10 @@
 		.navbar.header
 			= page_nav pages: Page.find("header").children, class: 'nav'
 		.navbar.secondary
-			= page_nav pages: Page.find("secondary").children, class: 'nav'
+			= page_nav pages: Page.find("secondary").children, class: 'nav' do
+				- if request.path != "/"
+					%li
+						= link_to "Market Directory", "/directory", class: "directory"
 		.content
 			= yield
 

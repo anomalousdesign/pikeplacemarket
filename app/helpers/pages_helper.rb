@@ -8,7 +8,7 @@ module PagesHelper
     html.html_safe
   end
   
-  def page_nav(args = {})
+  def page_nav(args = {}, &block)
   	args[:pages] ||= Page.live.where("ancestry is ?", nil)
     args[:pages] = args[:pages].order("position")
     html = ""
@@ -28,6 +28,7 @@ module PagesHelper
       html << page_nav(pages: page.children, class: (is_dropdown ? "dropdown-menu" : "")) if !page.children.empty?
       html << "</li>"
     end
+    html << capture_haml{yield(block)} if block.present?
     html << "</ul>"
     html.html_safe
   end

@@ -33,26 +33,6 @@
 		color: #999;
 	}
 }
-form.events-index{
-	input{
-		border:solid 1px #91c376;
-		padding: 4px;
-		background: #fff url(/assets/search-arrow-green.png) right center no-repeat;
-	}
-	select{
-		border: none;
-		color:#fff;
-		-webkit-appearance: none;
-		line-height: 1em;
-		font-family: 'Quattrocento Sans', sans-serif;
-		background: #91c376 url(/assets/select-arrow-white.png) right center no-repeat;
-		border-radius: 0;
-	}
-	h4{
-		font-size: 1.1em;
-		font-style: italic;
-	}
-}
 a.submit-event{
 	display: block;
 	color: #fff;

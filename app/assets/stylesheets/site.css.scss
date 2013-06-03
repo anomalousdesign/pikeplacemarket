@@ -121,6 +121,10 @@ ul.tags{
 		border-left: solid 1px #f4a02e;
 		font-style: italic;
 	}
+	.nav>li>a.directory{
+		padding-right: 50px;
+		background: url(/assets/directory-finger.png) right center no-repeat;
+	}
 	.nav>li>a:hover, .nav>li>a.active{
 		opacity:0.8;
 	}
@@ -368,4 +372,9 @@ img.tag{
 	padding: 0 4px;
 	line-height: 1.6em;
 	opacity:.75;
+}
+.navbar .nav>.active>a, .navbar .nav>.active>a:hover, .navbar .nav>.active>a:focus{
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
 }

@@ -12,14 +12,14 @@
 			.span4
 				%h4.green Sort By
 				%select.category{name: "category"}
-					%option Category
+					%option{value:""} Category
 					- MerchantCategory.main.each do |mc|
 						%option{value: mc.slug}
 							= mc.name
 			.span4
 				%h4 &nbsp;
 				%select.location{name: "location"}
-					%option Location
+					%option{value:""} Location
 					- Merchant.locations.each do |location|
 						%option
 							= location

@@ -1,3 +1,11 @@
+// params hash from query string
+var pairs = location.search.replace("?","").split('&');
+var params = {};
+for(i in pairs){
+	var split = pairs[i].split('=');
+	params[decodeURIComponent(split[0])] = decodeURIComponent(split[1]);
+}
+
 String.prototype.squeeze = function() {
 	return this.replace(/\s+/g, ' ').trim();
 };
@@ -69,6 +77,12 @@ $(function(){
 	$("#quick-search select").change(function(){
 		$("#quick-search").submit();
 	});
+
+	setTimeout(function(){
+		if(params.keyword != "") $("#directory-search input").val(params.keyword).keyup();
+		if(params.location != "") $("#directory-search input").val(params.location).keyup();
+		if(params.category != "") $("select.category").val(params.category).change();
+	}, 500);
 
 	$(".accordion-heading").click(function(){
 		if($(this).hasClass("active")){

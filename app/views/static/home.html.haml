@@ -34,14 +34,16 @@
 		%form#quick-search{action: "/directory"}
 			%strong Quick Search By:
 			%input{name: "keyword", type: "text"}
-			%select{name: "category"}
-				%option{value: ""} Category
-				%option Cat 1
-				%option Cat 2
-			%select{name: "Location"}
-				%option{value: ""} Location
-				%option Cat 1
-				%option Cat 2
+			%select.category{name: "category"}
+				%option{value:""} Category
+				- MerchantCategory.main.each do |mc|
+					%option{value: mc.slug}
+						= mc.name
+			%select.location{name: "location"}
+				%option{value:""} Location
+				- Merchant.locations.each do |location|
+					%option
+						= location
 
 	%hr.green{style:"margin-top:220px"}
 	%img.tag{src:"/assets/tag-tumbler.png"}

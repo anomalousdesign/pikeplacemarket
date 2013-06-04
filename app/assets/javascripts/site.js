@@ -1,3 +1,7 @@
+String.prototype.squeeze = function() {
+	return this.replace(/\s+/g, ' ').trim();
+};
+
 $(function(){
 	// Open expand menus for current page
 	// $("a[href*='"+location.pathname+"']").addClass("active").parents("li").find(".expand").click()
@@ -26,7 +30,7 @@ $(function(){
 		// location.href = location.pathname + "?tag=" + $(this).val()
 		$(".event-item").each(function(){
 			val = new RegExp($(".events-index input").val(), "i")
-			if($(this).html().match(val)) $(this).slideDown(100);
+			if($(this).text().squeeze().match(val)) $(this).slideDown(100);
 			else $(this).slideUp(100);
 		})
 	});
@@ -43,10 +47,23 @@ $(function(){
 		}
 		$(".merchant").each(function(){
 			val = new RegExp(s, "i")
-			if($(this).text().match(val)){
+			if($(this).text().squeeze().match(val)){
 				$(this).clone().appendTo("#search-results .results");
 			}
 		});
+	});
+
+	$("select.location").change(function(){
+		$("#directory-search input").val($("select.location").val()).keyup();
+	});
+
+	$("select.category").change(function(){
+		$(".accordion.main .accordion-body").removeClass("in");
+		$(".accordion.main .accordion-heading").removeClass("active");
+
+		accordion = $("#accordion-"+$(this).val());
+		accordion.find(".accordion-body").addClass("in");
+		accordion.find(".accordion-heading").addClass("active");
 	});
 
 	$("#quick-search select").change(function(){

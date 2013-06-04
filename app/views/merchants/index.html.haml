@@ -11,14 +11,14 @@
 				%input{name: "keyword"}
 			.span4
 				%h4.green Sort By
-				%select{name: "category"}
+				%select.category{name: "category"}
 					%option Category
 					- MerchantCategory.main.each do |mc|
-						%option
+						%option{value: mc.slug}
 							= mc.name
 			.span4
 				%h4 &nbsp;
-				%select{name: "location"}
+				%select.location{name: "location"}
 					%option Location
 					- Merchant.locations.each do |location|
 						%option
@@ -29,16 +29,16 @@
 
 	#search-results.hide
 		%hr.thin.red
-		.pull-right{style: "margin-top:15px"}
+		.pull-right{style: "margin-top:5px"}
 			%a{href:"#", onclick: "$('#directory-search input').val('').keyup()"} Clear Search
-		%h2.red 
+		%h4.red 
 			Search Results for
 			%span.search-term
 		%hr.thin.red
 		.results
 
 	- accordion_id = "accordion-main"
-	%div.accordion{id: accordion_id}
+	%div.accordion.main{id: accordion_id}
 		- MerchantCategory.main.each do |category|
 			- next if category.children.empty?
 			- accordion_id = "accordion-#{category.slug}"

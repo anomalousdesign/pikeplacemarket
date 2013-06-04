@@ -1,0 +1,29 @@
+- accordion_id = "accordion-#{category.slug}"
+%div.accordion{id: accordion_id}
+	- category.children.each do |cat|
+		- next if cat.merchants.empty?
+		.accordion-group.arrows
+			.accordion-heading.arrows
+				%a.accordion-toggle{"data-parent" => "##{accordion_id}", "data-toggle" => "collapse", :href => "#collapse-#{cat.id}"}
+					= cat.name
+			.accordion-body.collapse{id: "collapse-#{cat.id}"}
+				.accordion-inner
+					- cat.merchants.each do |merchant|
+						.merchant
+							%h3.green
+								= merchant.title
+							.row-fluid
+								.span6
+									= editable_image_tag "merchant-thumb-#{merchant.id}-1", 340, 200
+								.span6
+									= editable_image_tag "merchant-thumb-#{merchant.id}-2", 340, 200
+							%br
+							= merchant.about.html_safe
+							%hr{style:"border-top:solid 1px #91c376;margin:10px 0;"}
+							.pull-right
+								= merchant.market_location
+							= merchant.phone
+							- if merchant.link.present?
+								&nbsp; | &nbsp;
+								= link_to merchant.link, "http://#{merchant.link}", class:"red"
+							%hr.edges

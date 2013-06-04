@@ -20,7 +20,7 @@ $(function(){
 			if($(this).hasClass(c)) $(this).slideDown(100);
 			else $(this).slideUp(100);
 		})
-	})
+	});
 
 	$(".events-index input").keyup(function(){
 		// location.href = location.pathname + "?tag=" + $(this).val()
@@ -29,5 +29,36 @@ $(function(){
 			if($(this).html().match(val)) $(this).slideDown(100);
 			else $(this).slideUp(100);
 		})
-	})
+	});
+
+	$("#directory-search input").keyup(function(){
+		// location.href = location.pathname + "?tag=" + $(this).val()
+		$("#search-results .results").html("");
+		var s = $("#directory-search input").val();
+		$("#search-results .search-term").html('"'+s+'"');
+		if(s == ""){
+			$("#search-results").hide()
+		} else {
+			$("#search-results").show()
+		}
+		$(".merchant").each(function(){
+			val = new RegExp(s, "i")
+			if($(this).text().match(val)){
+				$(this).clone().appendTo("#search-results .results");
+			}
+		});
+	});
+
+	$("#quick-search select").change(function(){
+		$("#quick-search").submit();
+	});
+
+	$(".accordion-heading").click(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active");
+			return true;
+		}
+		$(this).parent().parent().find(".accordion-heading").removeClass("active");
+		$(this).addClass("active");
+	});
 })

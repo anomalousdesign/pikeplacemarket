@@ -31,15 +31,15 @@
 .sidebar
 	.market-directory-searchbox
 		= image_tag "market-directory-pointer.png", width: 276
-		%form
+		%form#quick-search{action: "/directory"}
 			%strong Quick Search By:
 			%input{name: "keyword", type: "text"}
 			%select{name: "category"}
-				%option Category
+				%option{value: ""} Category
 				%option Cat 1
 				%option Cat 2
 			%select{name: "Location"}
-				%option Location
+				%option{value: ""} Location
 				%option Cat 1
 				%option Cat 2
 

@@ -4,21 +4,21 @@
 	%img.tag{src:"/assets/tag-directory.png"}
 	%h1.red.tag-headline Market Directory
 
-	%form
+	%form#directory-search
 		.row-fluid
 			.span4
 				%h4.green Search By
-				%input
+				%input{name: "keyword"}
 			.span4
 				%h4.green Sort By
-				%select
+				%select{name: "category"}
 					%option Category
 					- MerchantCategory.main.each do |mc|
 						%option
 							= mc.name
 			.span4
 				%h4 &nbsp;
-				%select
+				%select{name: "location"}
 					%option Location
 					- Merchant.locations.each do |location|
 						%option
@@ -27,7 +27,28 @@
 	= editable "Market Directory Intro" do
 		%p Sed posuere consectetur est at lobortis. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo.
 
-	/ - MerchantCategory.main.each do |mc|
+	#search-results.hide
+		%hr.thin.red
+		.pull-right{style: "margin-top:15px"}
+			%a{href:"#", onclick: "$('#directory-search input').val('').keyup()"} Clear Search
+		%h2.red 
+			Search Results for
+			%span.search-term
+		%hr.thin.red
+		.results
+
+	- accordion_id = "accordion-main"
+	%div.accordion{id: accordion_id}
+		- MerchantCategory.main.each do |category|
+			- next if category.children.empty?
+			- accordion_id = "accordion-#{category.slug}"
+			.accordion-group.main{id: accordion_id}
+				.accordion-heading.main
+					%a.accordion-toggle{"data-parent" => "##{accordion_id}", "data-toggle" => "collapse", :href => "#collapse-#{category.id}", style: "background-image:url('/assets/category-#{category.slug}.png')"}
+						= category.name
+				.accordion-body.collapse{id: "collapse-#{category.id}"}
+					.accordion-inner
+						= render "merchants/category_accordion", category: category
 		
 
 .sidebar.pad

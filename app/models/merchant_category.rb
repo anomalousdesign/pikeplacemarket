@@ -4,5 +4,5 @@ class MerchantCategory < ActiveRecord::Base
   friendly_id :name, use: :slugged
   has_many :merchant_categorizations
   has_many :merchants, through: :merchant_categorizations
-  scope :main, where("ancestry is null").order("name")
+  scope :main, where("ancestry is null").order("position")
 end

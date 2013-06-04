@@ -351,8 +351,8 @@ img.tag{
 		line-height: 1em;
 	}
 }
-.accordion-heading{
-	background: #91c376;
+.accordion-heading.arrows{
+	background: #91c376 url(/assets/arrow-white-right.png) 97% center no-repeat;
 	font-family: 'Sanchez', serif;
 	a{
 		color: #fff;
@@ -362,11 +362,42 @@ img.tag{
 		text-decoration: none;
 	}
 }
-.accordion-group:nth-child(even) .accordion-heading{
-	background:#bfd3a0;
+.accordion-heading.arrows.active{
+	background-image: url(/assets/arrow-white-down.png);
 }
-.accordion-group .accordion-heading:hover{
-	background: #eec773;
+.accordion-group.arrows:nth-child(even) .accordion-heading.arrows{
+	background-color:#bfd3a0;
+}
+.accordion-group .accordion-heading.arrows:hover{
+	background-color: #eec773;
+	background-image: url(/assets/arrow-white-down.png);
+}
+.accordion-group.main{
+	border:none;
+}
+#accordion-main{
+	border-bottom:solid 1px #91c376;
+}
+.accordion-heading.main{
+	background: url(/assets/arrow-green-right.png) 97% center no-repeat;
+	font-size: 2em;
+	font-family: 'Sanchez', serif;
+	line-height: 1.4em;
+	border-top:solid 1px #91c376;
+	a{
+		color:#91c376;	
+		padding-left: 70px;	
+		background: 20px center no-repeat;
+	}
+	a:hover{
+		text-decoration: none;
+	}
+}
+.accordion-heading.main:hover{
+	background-image: url(/assets/arrow-green-down.png);
+}
+.accordion-heading.main.active{
+	background-image: url(/assets/arrow-green-down.png);
 }
 .btn-mini{
 	padding: 0 4px;

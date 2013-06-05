@@ -80,8 +80,8 @@ $(function(){
 	});
 
 	setTimeout(function(){
-		if(params.keyword != "") $("#directory-search input").val(params.keyword).keyup();
-		if(params.location != "") $("#directory-search input").val(params.location).keyup();
+		if(params.keyword != "") $("#directory-search input").val(params.keyword.split("+").join(" ")).keyup();
+		if(params.location != "") $("#directory-search input").val(params.location.split("+").join(" ")).keyup();
 		if(params.category != "") $("select.category").val(params.category).change();
 	}, 500);
 

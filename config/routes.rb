@@ -10,6 +10,8 @@ PikeplacemarketOrg::Application.routes.draw do
   resources :merchants, :path => "/directory", only: [:show, :index]
   resources :events, only: [:show, :index]
 
+  get "signup" => "static#signup"
+
   root :to => "static#home"
 
 end

@@ -7,6 +7,22 @@
 			= msg.html_safe
 	
 	.container
+		#e-news.hide
+			= editable "E-News Title" do
+				%h4 Stay in the Know!
+				%p Donec ullamcorper nulla non metus auctor.
+			%form{action: "/signup"}
+				.row-fluid
+					.span6
+						%input{type:'text', name: "first_name", placeholder: "First Name", style:"background:#fff"}
+					.span6
+						%input{type:'text', name: "last_name", placeholder: "Last Name", style:"background:#fff"}
+				.row-fluid
+					.span12
+						%input{type:'text', name: "email", placeholder: "Email Address", style: "width:97%; margin-top:5px"}
+						%input{type:'submit', value:'', class: 'submit'}
+
+
 		%ul.tags
 			%li
 				%a.twitter{href: "http://twitter.com/pike_place‎"}
@@ -17,9 +33,9 @@
 			%li
 				%a.tumbler{href: "http://blog.pikeplacemarket.org"}
 			%li
-				%a.news{href: "/"}
+				%a.news{href: "#", onclick: "$('#e-news').toggle()"}
 			%li.connect-arrow
-				%a{href: "#"}
+				%a{href: "#", onclick: "$('#e-news').toggle()"}
 					= image_tag "connect-arrow.png"
 
 		.logo-header
@@ -27,13 +43,14 @@
 				= image_tag "logo.gif"
 			%a.ppm-foundation.pull-right{href: "/"}
 				= image_tag "support-ppm-foundation.gif"
-		.navbar.header
-			= page_nav pages: Page.find("header").children, class: 'nav'
-		.navbar.secondary
-			= page_nav pages: Page.find("secondary").children, class: 'nav' do
-				- if request.path != "/"
-					%li
-						= link_to "Market Directory", "/directory", class: "directory"
+		.top-navs
+			.navbar.header
+				= page_nav pages: Page.find("header").children, class: 'nav'
+			.navbar.secondary
+				= page_nav pages: Page.find("secondary").children, class: 'nav' do
+					- if request.path != "/"
+						%li
+							= link_to "Market Directory", "/directory", class: "directory"
 		.content
 			= yield
 

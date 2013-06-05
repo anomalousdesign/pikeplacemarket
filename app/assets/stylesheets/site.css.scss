@@ -481,3 +481,7 @@ img.tag{
 		border:none;
 	}
 }
+.navbar .nav>li>.dropdown-menu:before,
+.navbar .nav>li>.dropdown-menu:after{
+	content: none;
+}

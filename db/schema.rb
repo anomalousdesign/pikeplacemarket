@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603144857) do
+ActiveRecord::Schema.define(:version => 20130605144233) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(:version => 20130603144857) do
     t.datetime "updated_at"
     t.string   "ancestry"
     t.integer  "merchant_category_id"
+    t.string   "heading_image"
+    t.string   "spotlight"
   end
 
   add_index "pages", ["ancestry"], :name => "index_pages_on_ancestry"

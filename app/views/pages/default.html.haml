@@ -5,7 +5,8 @@
 	%hr.red
 	/ TODO add header icon to pages
 	/ - if @page.header_icon.present?
-	%img.tag{src:"/assets/tag-clock.png"}
+	/ %img.tag{src:"/assets/tag-clock.png"}
+	%img.tag{src:"/assets/tags-heading/#{@page.heading_image || "clock.png"}"}
 
 	%h1.red.tag-headline
 		= @page.title

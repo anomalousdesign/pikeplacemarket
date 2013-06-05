@@ -55,15 +55,17 @@
 				- doc.css("item")[0..2].each do |item|
 					%li
 						- if item.css("description").first.content.match("<img")
-							%a{href: item.css("link").first.content}
+							%a{href: item.css("guid").first.content}
 								= image_tag item.css("description").first.content.split("<img src=\"")[1].split('"').first
+						- else
+							= image_tag "default-blog-image.png"
 						%strong
-							%a.grey{href: item.css("link").first.content }
+							%a.grey{href: item.css("guid").first.content }
 								= item.css("title").first.content
 						/ %p 
 						/ 	= item.css("description").first.content.gsub(%r{</?[^>]+?>}, '').split(" ")[0..10].join(" ")
 						/ 	\...
-						%a.more.pull-right.red.arrow{href: item.css("link").first.content}
+						%a.more.pull-right.red.arrow{href: item.css("guid").first.content}
 							Read More
 
 	%hr.yellow

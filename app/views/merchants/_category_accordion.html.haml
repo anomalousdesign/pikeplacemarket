@@ -12,18 +12,30 @@
 						.merchant
 							%h3.green
 								= merchant.title
-							.row-fluid
-								.span6
-									= editable_image_tag "merchant-thumb-#{merchant.id}-1", 340, 200
-								.span6
-									= editable_image_tag "merchant-thumb-#{merchant.id}-2", 340, 200
-							%br
-							= merchant.about.html_safe
+							- if merchant.sub_title.present?
+								%h4.green
+									= merchant.sub_title
+							- if current_admin || Editables::EditableImage.find_by_name("merchant-thumb-#{merchant.id}-1").present?
+								.row-fluid
+									.span6
+										= editable_image_tag "merchant-thumb-#{merchant.id}-1", 340, 200
+									.span6
+										= editable_image_tag "merchant-thumb-#{merchant.id}-2", 340, 200
+
+							- if merchant.about.present? 
+								%br
+								= merchant.about.html_safe
 							%hr{style:"border-top:solid 1px #91c376;margin:10px 0;"}
-							.pull-right
+							.pull-right{style:"text-align:right"}
 								= merchant.market_location
+								- if merchant.hours.present?
+									%br 
+									= merchant.hours
 							= merchant.phone
 							- if merchant.link.present?
 								&nbsp; | &nbsp;
 								= link_to merchant.link, "http://#{merchant.link}", class:"red"
+							- if merchant.address.present?
+								%br
+								= "#{merchant.address}, #{merchant.city} #{merchant.state} #{merchant.zip}"
 							%hr.edges

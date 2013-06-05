@@ -22,5 +22,24 @@ class Page < ActiveRecord::Base
   def label
     title
   end
+
+  def heading_image_enum
+    path = Rails.root.join('app', 'assets', 'images', 'tags-heading', "*")
+    files = Dir.glob(path)
+    templates = {}
+    files.each do |t|
+      key = File.basename(t)
+      templates[key.split(".").first.titleize] = key
+    end
+    templates
+  end
+
+  def spotlight_enum
+    [
+      "Farmer Spotlight",
+      "Market Spotlight",
+      "Market Facts",
+    ]
+  end
   
 end

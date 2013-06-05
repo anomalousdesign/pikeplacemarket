@@ -75,6 +75,7 @@ $(function(){
 	});
 
 	$("#quick-search select").change(function(){
+		if($(this).val() == "") return false;
 		$("#quick-search").submit();
 	});
 

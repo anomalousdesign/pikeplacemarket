@@ -417,6 +417,9 @@ img.tag{
 	-webkit-box-shadow: none;
 }
 .top-navs{
+	.nav > .dropdown-submenu > .dropdown-menu{
+		top:36px;
+	}
 	.dropdown-menu{
 		background: #b12029;
 		border:none;
@@ -435,7 +438,7 @@ img.tag{
 			font-family: 'Sanchez', serif;
 			font-style: italic;
 		}
-		a:hover, a:focus, li:hover a{
+		a:hover, a:focus, li:hover a, a.active{
 			background: none;
 			color: #f28b00;
 		}

@@ -485,3 +485,58 @@ img.tag{
 .navbar .nav>li>.dropdown-menu:after{
 	content: none;
 }
+#promos{
+	background: #ccc;
+	height: 445px;
+	overflow: hidden;
+	.promo{
+		h3, p{
+			line-height: 1.5em;
+			margin:0;
+			color: #fff;
+			text-shadow: 1px 1px 2px rgba(0,0,0,.25);
+		}
+		p{
+			font-size: 1.3em;
+		}
+		.caption{
+			display: block;
+			height:80px;
+			padding: 10px 20px;
+			margin-top: -100px;
+			background: url(/assets/caption-bg.png);
+			position: relative;
+			z-index: 100;
+		}
+	}
+	.promo:hover{
+		text-decoration: none;
+	}
+}
+/*#promo-nav{
+	ul{
+}*/
+#slider_nav{
+	list-style: none;
+	float: right;
+	margin-top: -30px;
+	margin-right: 15px;
+	position: relative;
+	z-index: 200;
+	li{
+		float: left;
+		margin-right: 0px;
+		font-size: 4em;
+		color:#fff;
+		text-shadow: 1px 1px 2px rgba(0,0,0,.25);
+	}
+	li:hover{
+		cursor: pointer;
+	}
+	li.active{
+		color: #7ba563;
+	}
+	.next, .back{
+		display: none;
+	}
+}

@@ -77,6 +77,13 @@ RailsAdmin.config do |config|
       end
     end
 
+    config.model Promo do
+      fields_of_type :text do
+        ckeditor true
+        ckeditor_base_location '/ckeditor/'
+      end
+    end
+
     config.model Merchant do
       fields_of_type :text do
         # bootstrap_wysihtml5 = true

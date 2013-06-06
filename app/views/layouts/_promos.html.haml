@@ -1,0 +1,18 @@
+#promos.slider
+	- Promo.order("position").each do |promo|
+		%a.promo.slide{href: promo.link, id: "promo-#{promo.id}"}
+			= image_tag promo.image, width: 710, height: 445
+			.caption
+				= promo.caption.html_safe
+
+:javascript
+	$(function(){
+		$("#promos").slider({random_start:false});
+	})
+
+/ #promo-nav
+/ 	%ul
+/ 		- Promo.order("position").each do |promo|
+/ 			%li
+/ 				%a{href: "#promo-#{promo.id}"}
+/ 					&bull;

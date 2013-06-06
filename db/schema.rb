@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605144233) do
+ActiveRecord::Schema.define(:version => 20130606141156) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -140,6 +140,18 @@ ActiveRecord::Schema.define(:version => 20130605144233) do
 
   add_index "pages", ["ancestry"], :name => "index_pages_on_ancestry"
   add_index "pages", ["slug"], :name => "index_pages_on_slug"
+
+  create_table "promos", :force => true do |t|
+    t.text     "caption"
+    t.integer  "position"
+    t.string   "link"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "subscribers", :force => true do |t|
     t.string   "name",       :limit => 250, :null => false

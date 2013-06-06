@@ -485,7 +485,29 @@ img.tag{
 .navbar .nav>li>.dropdown-menu:after{
 	content: none;
 }
-#promos{
+.theme-default .nivo-controlNav{
+	padding: none;
+	text-align: right;
+	float: right;
+	margin-top: -65px;
+	margin-right: 15px;
+	position: relative;
+	z-index: 200;
+}
+.nivo-caption{
+	background: url(/assets/caption-bg.png);
+	text-shadow: 1px 1px 2px rgba(0,0,0,.25);
+	opacity: 1;
+	padding: 20px;	
+	h3, p{
+		line-height: 1.3em;
+		margin:0;
+	}
+	p{
+		font-size: 1.3em;
+	}
+}
+/*#promos{
 	background: #ccc;
 	height: 445px;
 	overflow: hidden;
@@ -512,11 +534,11 @@ img.tag{
 	.promo:hover{
 		text-decoration: none;
 	}
-}
+}*/
 /*#promo-nav{
 	ul{
 }*/
-#slider_nav{
+/*#slider_nav{
 	list-style: none;
 	float: right;
 	margin-top: -30px;
@@ -539,4 +561,4 @@ img.tag{
 	.next, .back{
 		display: none;
 	}
-}
+}*/

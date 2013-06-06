@@ -1,18 +1,24 @@
-#promos.slider
-	- Promo.order("position").each do |promo|
-		%a.promo.slide{href: promo.link, id: "promo-#{promo.id}"}
-			= image_tag promo.image, width: 710, height: 445
-			.caption
-				= promo.caption.html_safe
+#promos.theme-default
+	.nivoSlider
+		- Promo.order("position").each do |promo|
+			%a.promo{href: promo.link, id: "promo-#{promo.id}"}
+				= image_tag promo.image.url(:large), width: 710, height: 445, title: "#promo-caption-#{promo.id}"
 
-:javascript
-	$(function(){
-		$("#promos").slider({random_start:false});
-	})
+- Promo.order("position").each do |promo|
+	.promo-caption.hide{id: "promo-caption-#{promo.id}"}
+		= promo.caption.html_safe
 
-/ #promo-nav
-/ 	%ul
-/ 		- Promo.order("position").each do |promo|
-/ 			%li
-/ 				%a{href: "#promo-#{promo.id}"}
-/ 					&bull;
+= content_for :head do
+	= stylesheet_link_tag		"/nivo-slider/themes/default/default.css", :media => "all"
+
+	:javascript
+		$(function(){
+			$(".nivoSlider").nivoSlider({effect: 'fade', slices:3, directionNav:false, pauseTime:5000});
+		});
+
+:css
+	.theme-default .nivoSlider{
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+	}

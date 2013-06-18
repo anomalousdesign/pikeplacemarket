@@ -31,6 +31,9 @@ hr.edges{
 	height:20px;
 	clear: both;
 }
+hr.tag{
+	margin-bottom: 0px;
+}
 a{
 	color: #b12029;
 }
@@ -218,10 +221,15 @@ footer{
 	color:#fff;
 	padding: 20px 0;
 	.navbar{
-		overflow: auto;
-		width:790px;
+		/*overflow: auto;*/
+		height:50px;
+		/*width:790px;*/
 		padding: 0 30px;
 		background: url(/assets/footer-banner.png) no-repeat center center;
+	}
+	.navbar .nav{
+		margin-top: 5px;
+		margin-left: 20px;
 	}
 	.navbar .nav>li{
 		border-right: solid 1px #c94546;
@@ -335,10 +343,10 @@ a.arrow-white{
 }
 img.tag{
 	float: left;
-	margin: -28px 15px 10px 15px;
+	margin: -8px 15px 10px 15px;
 }
 .tag-headline{
-	margin-top: -10px;
+	/*margin-top: -10px;*/
 	line-height: 1em;
 	margin-bottom: 20px;
 }
@@ -416,7 +424,7 @@ img.tag{
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 }
-.top-navs{
+.top-navs, footer{
 	.nav > .dropdown-submenu > .dropdown-menu{
 		top:36px;
 	}
@@ -438,10 +446,26 @@ img.tag{
 			font-family: 'Sanchez', serif;
 			font-style: italic;
 		}
-		a:hover, a:focus, li:hover a, a.active{
+		a:hover, a:focus, a.active{
 			background: none;
 			color: #f28b00;
 		}
+		li:hover a{
+			background: none;
+		}
+	}
+}
+.nav > .dropdown-submenu .dropdown-menu{
+	border-radius:0;
+}
+.secondary .dropdown-menu{
+	background: #f28b00;
+	font-size: .9em;
+	li{
+		border-bottom: solid 1px #f5c65d;
+	}
+	a:hover{
+		color: #b12029;
 	}
 }
 #e-news{
@@ -508,58 +532,15 @@ img.tag{
 		padding: 0;
 	}
 }
-/*#promos{
-	background: #ccc;
-	height: 445px;
-	overflow: hidden;
-	.promo{
-		h3, p{
-			line-height: 1.5em;
-			margin:0;
-			color: #fff;
-			text-shadow: 1px 1px 2px rgba(0,0,0,.25);
-		}
-		p{
-			font-size: 1.3em;
-		}
-		.caption{
-			display: block;
-			height:80px;
-			padding: 10px 20px;
-			margin-top: -100px;
-			background: url(/assets/caption-bg.png);
-			position: relative;
-			z-index: 100;
-		}
-	}
-	.promo:hover{
-		text-decoration: none;
-	}
-}*/
-/*#promo-nav{
-	ul{
-}*/
-/*#slider_nav{
-	list-style: none;
-	float: right;
-	margin-top: -30px;
-	margin-right: 15px;
-	position: relative;
-	z-index: 200;
-	li{
-		float: left;
-		margin-right: 0px;
-		font-size: 4em;
-		color:#fff;
-		text-shadow: 1px 1px 2px rgba(0,0,0,.25);
-	}
-	li:hover{
-		cursor: pointer;
-	}
-	li.active{
-		color: #7ba563;
-	}
-	.next, .back{
-		display: none;
-	}
-}*/
+.dropup-menu {
+  bottom: 100%;
+  top: auto !important;
+}
+.dropup-menu .dropup-menu {
+  bottom: 100%;
+  top: auto !important;
+  margin-bottom:-45px;
+}
+.dropdown-submenu > a::after{
+	content:none;
+}

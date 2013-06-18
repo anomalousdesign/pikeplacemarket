@@ -36,9 +36,11 @@ class Page < ActiveRecord::Base
 
   def spotlight_enum
     [
-      "Farmer Spotlight",
-      "Market Spotlight",
-      "Market Facts",
+      "Meet the Farmer",
+      "Meet the Crafter",
+      "Must-Have Tastes",
+      "Buon appetito!",
+      "Unique & Independent ",
     ]
   end
   

@@ -1,13 +1,19 @@
-%hr.green
-%img.tag{src:"/assets/tag-cherries.png"}
-%h4.green.tag-headline 
-	= editable "#{@page.spotlight_name} Header" do
-		Spotlight Title
-.indent
-	= editable_image_tag "farmer-spotlight", 300, 150
-	= editable "farmer-spotlight" do
-		%br
-		%strong.red Quam Elit Aenean Tristique et ala 
-		%p 
-			Nullam Vehicula Bibendum Erets Donec id elit non mi porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. 
-			%a.red.arrow{href:"#"} READ MORE
+- icon ||= "tag-cherries.png"
+- color ||= "green"
+
+/ TODO - change color and image based on spotlight
+
+- if spotlight.present?
+	%hr.tag{class: color}
+	%img.tag{src:"/assets/#{icon}"}
+	%h4.tag-headline{class: color}
+		= editable "#{spotlight} Title" do
+			= spotlight
+	.indent
+		= editable_image_tag "#{spotlight} Thumb", 300, 150
+		= editable "#{spotlight} Body" do
+			%br
+			%strong.red Quam Elit Aenean Tristique et ala 
+			%p 
+				Nullam Vehicula Bibendum Erets Donec id elit non mi porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. 
+				%a.red.arrow{href:"#"} READ MORE

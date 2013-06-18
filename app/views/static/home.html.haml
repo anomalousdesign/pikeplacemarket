@@ -1,5 +1,4 @@
 .body
-	/ = editable_image_tag "homepage-slideshow", 710, 445
 	= render "layouts/promos"
 
 	%hr
@@ -11,7 +10,7 @@
 				%br
 				Donec ullamcorper nulla non metus auctor fringilla.
 
-	%hr.red
+	%hr.tag.red
 	%img.tag{src:"/assets/tag-clock.png"}
 	%h2.red.tag-headline Headline Here
 	%br
@@ -31,7 +30,8 @@
 
 .sidebar
 	.market-directory-searchbox
-		= image_tag "market-directory-pointer.png", width: 276
+		%a{href: "/directory"}
+			= image_tag "market-directory-pointer.png", width: 276
 		%form#quick-search{action: "/directory"}
 			%strong Quick Search By:
 			%input{name: "keyword", type: "text"}
@@ -46,7 +46,7 @@
 					%option
 						= location
 
-	%hr.green{style:"margin-top:220px"}
+	%hr.tag.green{style:"margin-top:220px"}
 	%img.tag{src:"/assets/tag-tumbler.png"}
 	%h4.green.tag-headline Tumbler Feed
 	= cache "tumbler feed", expires_in: 1.hour do
@@ -69,13 +69,4 @@
 						%a.more.pull-right.red.arrow{href: item.css("guid").first.content}
 							Read More
 
-	%hr.yellow
-	%img.tag{src:"/assets/tag-fish.png"}
-	%h4.yellow.tag-headline Market Spotlight
-	.indent
-		= editable_image_tag "homepage-thumb", 240, 140
-		%br
-		= editable "Sidebar Spotlight 2" do
-			%strong.red Quam Elit Aenean Tristique Commodo
-			%p Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus alique...
-			%a.red.arrow{href: "#"} Read More
+	= render "pages/spotlight", spotlight: "Market Spotlight", icon: "tag-fish.png", color: "yellow"

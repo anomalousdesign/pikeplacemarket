@@ -1,5 +1,7 @@
 .body
 
+	= editable_image_tag "page-#{@page.id}-header", 720, 340
+	
 	%hr.red
 	%img.tag{src:"/assets/tag-beans.png"}
 	%h2.red.tag-headline
@@ -18,3 +20,5 @@
 
 .sidebar.pad
 	= render "layouts/subnav"
+
+	= render "spotlight", spotlight: @page.spotlight

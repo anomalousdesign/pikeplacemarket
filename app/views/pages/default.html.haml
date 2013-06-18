@@ -23,17 +23,4 @@
 .sidebar.pad
 	= render "layouts/subnav"
 
-	/ TODO - add spotlight field to pages
-	/ = render "spotlights/#{@page.spotlight}"
-
-	%hr.green
-	%img.tag{src:"/assets/tag-cherries.png"}
-	%h4.green.tag-headline Farmer Spotlight
-	.indent
-		= editable_image_tag "farmer-spotlight", 300, 150
-		= editable "farmer-spotlight" do
-			%br
-			%strong.red Quam Elit Aenean Tristique et ala 
-			%p 
-				Nullam Vehicula Bibendum Erets Donec id elit non mi porta gravida at eget metus. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. 
-				%a.red.arrow{href:"#"} READ MORE
+	= render "spotlight", spotlight: @page.spotlight

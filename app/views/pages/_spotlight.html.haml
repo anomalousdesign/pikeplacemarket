@@ -1,12 +1,9 @@
-- icon ||= "tag-cherries.png"
-- color ||= "green"
-
-/ TODO - change color and image based on spotlight
+- header ||= @page.spotlight_header
 
 - if spotlight.present?
-	%hr.tag{class: color}
-	%img.tag{src:"/assets/#{icon}"}
-	%h4.tag-headline{class: color}
+	%hr.tag{class: header[:color]}
+	%img.tag{src:"/assets/#{header[:icon]}"}
+	%h4.tag-headline{class: header[:color]}
 		= editable "#{spotlight} Title" do
 			= spotlight
 	.indent

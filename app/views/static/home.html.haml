@@ -12,7 +12,7 @@
 
 	%hr.tag.red
 	%img.tag{src:"/assets/tag-clock.png"}
-	%h2.red.tag-headline Headline Here
+	%h2.red.tag-headline What's Happening
 	%br
 	.indent
 		.row-fluid
@@ -69,4 +69,4 @@
 						%a.more.pull-right.red.arrow{href: item.css("guid").first.content}
 							Read More
 
-	= render "pages/spotlight", spotlight: "Market Spotlight", icon: "tag-fish.png", color: "yellow"
+	= render "pages/spotlight", spotlight: "Market Spotlight", header: {icon: "tag-fish.png", color: "yellow"}

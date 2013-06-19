@@ -1,3 +1,5 @@
+= render "events/modal"
+
 %form.events-index
 	.row-fluid
 		.span4
@@ -12,7 +14,7 @@
 						= name
 		.span4
 			%h4 &nbsp;
-			%a.submit-event{href:"#submit-event"} Submit An Event
+			%a.submit-event{href:"#submit-event", "data-toggle" => "modal"} Submit An Event
 
 	%hr.thin.green
 	%h4.green Events
@@ -42,12 +44,15 @@
 									Date:
 							%td
 								= event.start.strftime("%B %e, %Y")
-						%tr
-							%td
-								%h4
-									Time:
-							%td
-								= "#{event.start.strftime("%l:%M %P")} - #{event.end.strftime("%l:%M %P")}"
+								- if event.start.to_date != event.end.to_date
+									= "- #{event.end.strftime("%B %e, %Y")}"
+						- if event.start.strftime("%l:%M %P") != "12:00 am"
+							%tr
+								%td
+									%h4
+										Time:
+								%td
+									= "#{event.start.strftime("%l:%M %P")} - #{event.end.strftime("%l:%M %P")}"
 						%tr
 							%td
 								%h4

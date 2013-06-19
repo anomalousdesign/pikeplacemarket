@@ -2,11 +2,8 @@
 
 	= editable_image_tag "page-#{@page.id}-header", 720, 340
 
-	%hr.red
-	/ TODO add header icon to pages
-	/ - if @page.header_icon.present?
-	/ %img.tag{src:"/assets/tag-clock.png"}
-	%img.tag{src:"/assets/tags-heading/#{@page.heading_image || "clock.png"}"}
+	%hr.tag.red
+	%img.tag{src: @page.heading_image_path }
 
 	%h1.red.tag-headline
 		= @page.title

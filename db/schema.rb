@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606141156) do
+ActiveRecord::Schema.define(:version => 20130619065609) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(:version => 20130606141156) do
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+
+  create_table "attachments", :force => true do |t|
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "name"
+  end
 
   create_table "editable_images", :force => true do |t|
     t.string   "name"
@@ -68,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130606141156) do
     t.float    "price"
     t.string   "contact"
     t.string   "ticket_link"
+    t.string   "email"
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug"

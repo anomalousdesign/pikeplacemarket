@@ -34,14 +34,38 @@ class Page < ActiveRecord::Base
     templates
   end
 
+  def heading_image_path
+    if heading_image.present?
+      f = heading_image
+    else
+      f = "clock.png"
+    end
+    "/assets/tags-heading/#{f}"
+  end
+
   def spotlight_enum
     [
+      "Market Spotlight!",
       "Meet the Farmer",
       "Meet the Crafter",
       "Must-Have Tastes",
       "Buon appetito!",
-      "Unique & Independent ",
+      "Unique & Independent",
+      "What's Fresh",
     ]
+  end
+
+  def spotlight_header    
+    info = {
+      "Market Spotlight!" => { icon: "tag-small-clock.png", color: "red" },
+      "Meet the Farmer" => { icon: "tag-small-apple.png", color: "green" },
+      "Meet the Crafter" => { icon: "tag-small-barrel.png", color: "orange" },
+      "Must-Have Tastes" => { icon: "tag-small-crab.png", color: "red" },
+      "Buon appetito!" => { icon: "tag-small-silverware.png", color: "green" },
+      "Unique & Independent" => { icon: "tag-small-bag.png", color: "yellow" },
+      "What's Fresh" => { icon: "tag-small-fish.png", color: "yellow" },
+    }
+    info[spotlight] || { icon: "tag-small-clock.png", color: "red" }
   end
   
 end

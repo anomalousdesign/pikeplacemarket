@@ -1,0 +1,24 @@
+- accordion_id = "timeline"
+%div.accordion{id: accordion_id}
+	- start_decade = TimelineEvent.minimum(:year).to_s[0..2]
+	- end_decade = TimelineEvent.maximum(:year).to_s[0..2]
+	- (start_decade..end_decade).each do |d|
+		- decade = "#{d}0".to_i
+		.accordion-group.arrows
+			.accordion-heading.arrows
+				%a.accordion-toggle{"data-parent" => "##{accordion_id}", "data-toggle" => "collapse", :href => "#collapse-#{decade}"}
+					= decade
+			.accordion-body.collapse{id: "collapse-#{decade}"}
+				.accordion-inner
+					- TimelineEvent.where("year >= ? and year <= ?", decade, decade + 9).each do |event|
+						.merchant
+							- if current_admin || Editables::EditableImage.find_by_name("event-thumb-#{event.id}-1").present?
+								.row-fluid
+									.span6
+										= editable_image_tag "event-thumb-#{event.id}-1", 340, 200
+									.span6
+										%h3.green
+											= event.year
+											= event.title
+										= event.content.html_safe
+							%hr.edges

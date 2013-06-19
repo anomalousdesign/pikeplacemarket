@@ -11,16 +11,19 @@
 			= editable "E-News Title" do
 				%h4 Stay in the Know!
 				%p Donec ullamcorper nulla non metus auctor.
-			%form{action: "/signup"}
-				.row-fluid
-					.span6
-						%input{type:'text', name: "first_name", placeholder: "First Name", style:"background:#fff"}
-					.span6
-						%input{type:'text', name: "last_name", placeholder: "Last Name", style:"background:#fff"}
+			/ %form{action: "/signup"}
+			/ 	.row-fluid
+			/ 		.span6
+			/ 			%input{type:'text', name: "first_name", placeholder: "First Name", style:"background:#fff"}
+			/ 		.span6
+			/ 			%input{type:'text', name: "last_name", placeholder: "Last Name", style:"background:#fff"}
+			%form{action: "http://visitor.constantcontact.com/d.jsp", name: "ccoptin", target: "_blank"}
 				.row-fluid
 					.span12
-						%input{type:'text', name: "email", placeholder: "Email Address", style: "width:97%; margin-top:5px"}
+						%input{type:'text', name: "ea", placeholder: "Email Address", style: "width:97%; margin-top:5px"}
+						/ %input{type:'text', name: "email", placeholder: "Email Address", style: "width:97%; margin-top:5px"}
 						%input{type:'submit', value:'', class: 'submit'}
+						%input{type:'hidden', name: 'm', value: '1102055437803', class: 'submit'}
 
 
 		%ul.tags

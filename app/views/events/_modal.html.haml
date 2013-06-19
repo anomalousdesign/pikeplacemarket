@@ -1,0 +1,80 @@
+#submit-event.modal.hide.fade{style:"width:900px"}
+	.modal-body
+		%hr.red
+		%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+		%h1.red Submit an Event
+		= form_for Event.new(start: Time.now.to_date + 12.hours, end: Time.now.to_date + 12.hours) do |f|
+			.row-fluid
+				%h4.green Select a Category
+				- Event.tag_counts.each do |name, count|
+					%input{type: "radio", name: "event[tag]", value: name}
+					%label.radio
+						= name
+			%br
+			.row-fluid
+				.span7
+					= f.text_field :title, placeholder: "Name of Event"
+				.span5
+					%label{style: "width:30%"} Event Start Date
+					= f.date_select :start
+			.row-fluid
+				.span7
+					= f.text_field :business, placeholder: "Name of Business"
+				.span5
+					%label{style: "width:30%"} Event End Date
+					= f.date_select :end
+			.row-fluid
+				.span7
+					= f.text_field :location, placeholder: "Location in Market"
+				.span5
+					%label{style: "width:30%"} Start Time
+					= f.time_select :start
+					%label{style:"padding:0 10px"} End Time
+					= f.time_select :end
+			.row-fluid
+				.span7
+					= f.text_field :address, placeholder: "Address"
+				.span5
+					%label{style: "width:30%"} Recurring Event?
+
+					%select
+						%option{value: ""} No
+						%option{value: "weekly"} Yes, Weekly
+						%option{value: "monthly"} Yes, Monthly
+
+					/ = f.select_field :address, placeholder: "Address"
+			.row-fluid
+				.span7
+					= f.text_field :url, placeholder: "Website URL"
+				.span5
+					= f.text_field :price, placeholder: "Price (enter price or FREE)"
+			.row-fluid
+				.span12
+					= f.text_area :details, placeholder: "Description of Event"
+			.row-fluid
+				.span4
+					= f.text_field :email, placeholder: "Contact Email"
+				.span4
+					= f.file_field :image, style:"display:none"
+					%a{class: "btn", onclick: "$('#event_image').click()", style: "width:95%"}
+						Upload a Photo
+				.span4
+					%a{class: "btn btn-primary", onclick:"$('#new_event').submit()", style: "width:95%"}
+						Submit Event
+					/ = f.submit "Submit Event", class: "btn"
+
+:css
+	.row-fluid{width:98%}
+	#submit-event{margin-left:-450px}
+	.modal input, .modal textarea{width:100%; background:none;}
+	.modal input[type=radio]{width:15px; margin-right:1px}
+	label.radio{margin-right:20px; padding:0}
+	.modal textarea{height:100px}
+	.modal form select{width:auto; background-image:none;}
+	.modal label{display:inline-block}
+	.modal input[type=text], .modal textarea{border: solid 1px #91c376; border-radius:0}
+	.modal input[type=file]{border:none; border-radius:0}
+	.modal-body{max-height:none}
+	.modal{border-radius:0}
+	.modal-body{padding: 0 20px}
+	.modal hr{margin: 0 -20px 20px -20px}

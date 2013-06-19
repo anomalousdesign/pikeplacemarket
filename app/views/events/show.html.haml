@@ -18,14 +18,19 @@
 		.span6
 			%h4.green
 				= @event.start.strftime("%A, %B %e %Y")
+				- if @event.start.to_date != @event.end.to_date
+					\-
+					%br
+					= @event.end.strftime("%B %e, %Y")
 
 			%table.event-details
-				%tr
-					%td
-						%h4
-							Time:
-					%td
-						= "#{@event.start.strftime("%l:%M %P")} - #{@event.end.strftime("%l:%M %P")}"
+				- if @event.start.strftime("%l:%M %P") != "12:00 am"
+					%tr
+						%td
+							%h4
+								Time:
+						%td
+							= "#{@event.start.strftime("%l:%M %P")} - #{@event.end.strftime("%l:%M %P")}"
 				%tr
 					%td
 						%h4

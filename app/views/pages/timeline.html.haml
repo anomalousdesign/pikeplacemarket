@@ -1,10 +1,11 @@
 .body
 
 	= editable_image_tag "page-#{@page.id}-header", 720, 340
-	
+
 	%hr.tag.red
 	%img.tag{src: @page.heading_image_path }
-	%h2.red.tag-headline
+
+	%h1.red.tag-headline
 		= @page.title
 
 	= editable "Page #{@page.id} Body" do
@@ -16,7 +17,7 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-	= render "merchants/category_accordion", category: @page.merchant_category
+	= render "timeline_events/accordion"
 
 .sidebar.pad
 	= render "layouts/subnav"

@@ -3,11 +3,11 @@
 		%hr.red
 		%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
 		%h1.red Submit an Event
-		= form_for Event.new(start: Time.now.to_date + 12.hours, end: Time.now.to_date + 12.hours) do |f|
+		= form_for Event.new(start: Time.now.to_date + 12.hours, end: Time.now.to_date + 12.hours), enctype:"multipart/form-data" do |f|
 			.row-fluid
 				%h4.green Select a Category
 				- Event.tag_counts.each do |name, count|
-					%input{type: "radio", name: "event[tag]", value: name}
+					%input{type: "radio", name: "event[tag_list]", value: name}
 					%label.radio
 						= name
 			%br
@@ -56,10 +56,10 @@
 					= f.text_field :email, placeholder: "Contact Email"
 				.span4
 					= f.file_field :image, style:"display:none"
-					%a{class: "btn", onclick: "$('#event_image').click()", style: "width:95%"}
+					%a{class: "btn", onclick: "$('#event_image').click()", style: "width:85%"}
 						Upload a Photo
 				.span4
-					%a{class: "btn btn-primary", onclick:"$('#new_event').submit()", style: "width:95%"}
+					%a{class: "btn btn-primary", onclick:"$('#new_event').submit()", style: "width:85%"}
 						Submit Event
 					/ = f.submit "Submit Event", class: "btn"
 

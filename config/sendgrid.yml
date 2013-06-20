@@ -1,0 +1,5 @@
+# sendgrid lets you send from different domains, but you must turn off Domain Keys (App)
+# http://support.sendgrid.com/entries/91594-can-i-send-from-multiple-from-addresses-or-different-domains
+user_name: killitcreative
+password: cLu54ebr
+domain: bellakitchen.com

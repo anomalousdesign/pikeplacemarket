@@ -36,4 +36,14 @@ PikeplacemarketOrg::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  sendgrid = YAML.load_file("#{Rails.root}/config/sendgrid.yml").symbolize_keys
+  ActionMailer::Base.smtp_settings = {
+    :address        => "smtp.sendgrid.net",
+    :port           => "25",
+    :authentication => :plain,
+    :user_name      => sendgrid[:user_name],
+    :password       => sendgrid[:password],
+    :domain         => sendgrid[:domain]
+  }
 end

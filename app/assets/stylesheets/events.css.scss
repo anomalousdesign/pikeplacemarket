@@ -33,13 +33,27 @@
 		color: #999;
 	}
 }
-a.submit-event{
+a.submit-event, .modal a.btn{
 	display: block;
+	text-shadow: none;
 	color: #fff;
 	padding:5px 10px 5px 40px;
+	border-radius: 0;
+	background: #91c376;
+	box-shadow: none;
+	border:none;
+}
+.modal a.btn-primary{
+	background: #b12029;
+}
+.modal .btn:hover{
+	background-color: #666;
+}
+a.submit-event{
 	background: url(/assets/icon-calendar.png) 5px 4px no-repeat #b12029;
 }
 a.submit-event:hover{
 	background-color:#91c376;
 	text-decoration: none;
+	color:#fff;
 }

@@ -59,7 +59,7 @@
 					%a{class: "btn", onclick: "$('#event_image').click()", style: "width:85%"}
 						Upload a Photo
 				.span4
-					%a{class: "btn btn-primary", onclick:"$('#new_event').submit()", style: "width:85%"}
+					%a{class: "btn btn-primary", onclick:"$(this).html('Submitting, please wait...'); $('#new_event').submit()", style: "width:85%"}
 						Submit Event
 					/ = f.submit "Submit Event", class: "btn"
 

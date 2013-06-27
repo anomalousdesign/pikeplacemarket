@@ -18,20 +18,22 @@
 .sidebar.pad
 	= render "layouts/subnav"
 
-%hr.edges
+%div{class: "#{@page.slug} explore"}
 
-- (1..3).each do |row|
-	.row-fluid
-		- (1..3).each do |column|
-			- key = "thumb-#{@page.id}-#{row}-#{column}"
-			- next if (Editables::Editable.find_by_name("#{key}-a").content.match("Lorem") rescue true) && !current_admin
-			.span4.info-thumb
-				= editable_image_tag key, 310, 200
-				.info
-					= editable "#{key}-a" do
-						%h3 Title
-						%p 
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
-							eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							%a.arrow.arrow-white{href:"#"} Learn More
-	%br
+	%hr.edges
+
+	- (1..3).each do |row|
+		.row-fluid
+			- (1..3).each do |column|
+				- key = "thumb-#{@page.id}-#{row}-#{column}"
+				- next if (Editables::Editable.find_by_name("#{key}-a").content.match("Lorem") rescue true) && !current_admin
+				.span4.info-thumb
+					= editable_image_tag key, 310, 200
+					.info
+						= editable "#{key}-a" do
+							%h3 Title
+							%p 
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+								eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								%a.arrow.arrow-white{href:"#"} Learn More
+		%br

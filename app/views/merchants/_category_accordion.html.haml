@@ -1,5 +1,6 @@
 - accordion_id = "accordion-#{category.slug}"
 - cats = category.descendants.present? ? category.descendants : [category]
+- cats = cats.sort_by { |c| c.name }
 %div.accordion{id: accordion_id}
 	- cats.each do |cat|
 		- next if cat.merchants.empty?

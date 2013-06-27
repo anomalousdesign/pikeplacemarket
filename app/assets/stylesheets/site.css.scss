@@ -142,6 +142,9 @@ ul.tags{
 		border-left: none;
 		padding-left: 0;
 	}
+	.nav>li>a.active{
+		color:#b12029;
+	}
 }
 .container{
 	width:980px;
@@ -180,6 +183,7 @@ ul.tags{
 			text-transform: uppercase;
 			font-family: 'Fjalla One', sans-serif;
 			text-align: center;
+			font-size: 1.5em;
 		}
 		.nav{
 			min-height: 275px;
@@ -247,9 +251,11 @@ footer{
 		padding-right: 25px;
 		background: url(/assets/footer-arrow.png) right center no-repeat;
 	}
-	.navbar .nav>li>a:hover, .nav>li>a.active{
-		color: #fff;
-		opacity:0.5;
+	.navbar .nav>.active>a:hover, .navbar .nav>.active>a, .navbar .nav>.active>a:focus,
+	.navbar .nav>li>a:hover, .navbar .nav>li>a:focus{
+		color: #e66961;
+		background-color: transparent;
+		/*opacity:0.5;*/
 	}
 	.copyright{
 		font-size: .8em;
@@ -318,15 +324,18 @@ ul.feed{
 	list-style: none;
 	margin-left:0;
 	padding-left: 0;
-	padding-bottom: 20px;
+	height:258px;
 	li{
 		margin-left: 100px;
 		margin-top: 20px;
-		min-height: 55px;
-		img{
+		height: 70px;
+		.img{
 			float:left;
 			width:90px;
-			margin-left: -100px
+			height:70px;
+			margin-left: -100px;
+			border:solid 1px #ccc;
+			background-size: cover;
 		}
 	}
 }
@@ -363,7 +372,9 @@ img.tag{
 		color: #fff;
 	}
 	h3{
-		line-height: 1em;
+		line-height: 1.3em;
+		font-size: 1.3em;
+		margin-bottom: 15px;
 	}
 	h3, p{
 		color:#fff;
@@ -468,6 +479,9 @@ img.tag{
 		border-bottom: solid 1px #f5c65d;
 	}
 	a:hover{
+		color: #efc865;
+	}
+	a.active{
 		color: #b12029;
 	}
 }
@@ -547,4 +561,12 @@ img.tag{
 }
 .dropdown-submenu > a::after{
 	content:none;
+}
+.with-thumb{
+	h4{
+		margin-top: 0;
+	}
+}
+.explore-the-market.explore{
+	margin-top: -100px;
 }

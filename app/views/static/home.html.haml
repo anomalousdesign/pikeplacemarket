@@ -18,7 +18,7 @@
 		.row-fluid
 			.span4
 				= editable_image_tag "homepage-thumb", 260, 200
-			.span8
+			.span8.with-thumb
 				= editable "Homepage Body" do
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -57,7 +57,9 @@
 					%li
 						- if item.css("description").first.content.match("<img")
 							%a{href: item.css("guid").first.content}
-								= image_tag item.css("description").first.content.split("<img src=\"")[1].split('"').first
+								- img = item.css("description").first.content.split("<img")[1].split("src=\"").last.split('"').first
+								.img{style:"background-image:url('#{img}')"}
+								/ = image_tag item.css("description").first.content.split("<img")[1].split("src=\"").last.split('"').first
 						- else
 							= image_tag "default-blog-image.png"
 						%strong

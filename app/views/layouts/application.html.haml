@@ -24,6 +24,8 @@
 						/ %input{type:'text', name: "email", placeholder: "Email Address", style: "width:97%; margin-top:5px"}
 						%input{type:'submit', value:'', class: 'submit'}
 						%input{type:'hidden', name: 'm', value: '1102055437803', class: 'submit'}
+						%a.btn.btn-mini.pull-right{href:"#", onclick: "$('#e-news').fadeOut();", style:"margin: 10px -5px -5px 0"}
+							x
 
 
 		%ul.tags
@@ -38,7 +40,7 @@
 			%li
 				%a.news{href: "#", onclick: "$('#e-news').toggle()"}
 			%li.connect-arrow
-				%a{href: "#", onclick: "$('#e-news').toggle()"}
+				%a{href: "#", onclick: "$('#e-news').fadeIn()"}
 					= image_tag "connect-arrow.png"
 
 		.logo-header

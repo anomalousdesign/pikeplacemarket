@@ -12,13 +12,13 @@
 				.accordion-inner
 					- TimelineEvent.where("year >= ? and year <= ?", decade, decade + 9).each do |event|
 						.merchant
-							- if current_admin || Editables::EditableImage.find_by_name("event-thumb-#{event.id}-1").present?
-								.row-fluid
-									.span6
-										= editable_image_tag "event-thumb-#{event.id}-1", 340, 200
-									.span6
-										%h3.green
-											= event.year
-											= event.title
-										= event.content.html_safe
+							/ - if current_admin || Editables::EditableImage.find_by_name("event-thumb-#{event.id}-1").present?
+							.row-fluid
+								.span6
+									= editable_image_tag "event-thumb-#{event.id}-1", 340, 200
+								.span6
+									%h3.green
+										= event.year
+										= event.title
+									= event.content.html_safe
 							%hr.edges

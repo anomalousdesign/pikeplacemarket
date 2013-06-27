@@ -4,6 +4,9 @@ form{
 		padding: 4px;
 		background: #fff url(/assets/search-arrow-green.png) right center no-repeat;
 	}
+	input[type=radio], input[type=checkbox]{
+		border:none;
+	}
 	select{
 		border: none;
 		color:#fff;

@@ -1,3 +1,6 @@
 .ppm-foundation{
 	margin-top: -31px;
 }
+.modal form select{
+	padding: 0px;
+}

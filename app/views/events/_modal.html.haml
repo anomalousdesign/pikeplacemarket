@@ -15,38 +15,40 @@
 				.span7
 					= f.text_field :title, placeholder: "Name of Event"
 				.span5
-					%label{style: "width:30%"} Event Start Date
+					%label{style: "width:40%"} Event Start Date
 					= f.date_select :start
 			.row-fluid
 				.span7
 					= f.text_field :business, placeholder: "Name of Business"
 				.span5
-					%label{style: "width:30%"} Event End Date
+					%label{style: "width:40%"} Event End Date
 					= f.date_select :end
 			.row-fluid
 				.span7
 					= f.text_field :location, placeholder: "Location in Market"
 				.span5
-					%label{style: "width:30%"} Start Time
+					%label{style: "width:40%"} Start Time
 					= f.time_select :start
-					%label{style:"padding:0 10px"} End Time
-					= f.time_select :end
 			.row-fluid
 				.span7
 					= f.text_field :address, placeholder: "Address"
 				.span5
-					%label{style: "width:30%"} Recurring Event?
-
-					%select
-						%option{value: ""} No
-						%option{value: "weekly"} Yes, Weekly
-						%option{value: "monthly"} Yes, Monthly
+					%label{style: "width:40%"} End Time
+					= f.time_select :end
 
 					/ = f.select_field :address, placeholder: "Address"
 			.row-fluid
 				.span7
 					= f.text_field :url, placeholder: "Website URL"
 				.span5
+					%label{style: "width:40%"} Recurring Event?
+
+					%select
+						%option{value: ""} No
+						%option{value: "weekly"} Yes, Weekly
+						%option{value: "monthly"} Yes, Monthly
+			.row-fluid
+				.span7
 					= f.text_field :price, placeholder: "Price (enter price or FREE)"
 			.row-fluid
 				.span12

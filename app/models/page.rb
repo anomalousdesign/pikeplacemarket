@@ -55,8 +55,8 @@ class Page < ActiveRecord::Base
     ]
   end
 
-  def spotlight_header    
-    info = {
+  def self.spotlights   
+    {
       "Market Spotlight!" => { icon: "tag-small-clock.png", color: "red" },
       "Meet the Farmer" => { icon: "tag-small-apple.png", color: "green" },
       "Meet the Crafter" => { icon: "tag-small-barrel.png", color: "orange" },
@@ -65,7 +65,10 @@ class Page < ActiveRecord::Base
       "Unique & Independent" => { icon: "tag-small-bag.png", color: "yellow" },
       "What's Fresh" => { icon: "tag-small-fish.png", color: "yellow" },
     }
-    info[spotlight] || { icon: "tag-small-clock.png", color: "red" }
+  end
+
+  def spotlight_header 
+    Page.spotlights[spotlight] || { icon: "tag-small-clock.png", color: "red" }
   end
   
 end

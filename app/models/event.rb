@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
   end
 
   def multiple_days?
-    self.start.strftime("%m/%d") != self.end.strftime("%m/%d")
+    self.start.strftime("%m/%e") != self.end.strftime("%m/%e")
   end
 
 end

@@ -10,34 +10,5 @@
 					= cat.name
 			.accordion-body.collapse{id: "collapse-#{cat.id}", class: "mc-#{cat.slug}"}
 				.accordion-inner
-					- cat.merchants.each do |merchant|
-						.merchant
-							%h3.green
-								= merchant.title
-							- if merchant.sub_title.present?
-								%h4.green
-									= merchant.sub_title
-							- if current_admin || Editables::EditableImage.find_by_name("merchant-thumb-#{merchant.id}-1").present?
-								.row-fluid
-									.span6
-										= editable_image_tag "merchant-thumb-#{merchant.id}-1", 340, 200
-									.span6
-										= editable_image_tag "merchant-thumb-#{merchant.id}-2", 340, 200
-
-							- if merchant.about.present? 
-								%br
-								= merchant.about.html_safe
-							%hr{style:"border-top:solid 1px #91c376;margin:10px 0;"}
-							.pull-right{style:"text-align:right"}
-								= merchant.market_location
-								- if merchant.hours.present?
-									%br 
-									= merchant.hours
-							= merchant.phone
-							- if merchant.link.present?
-								&nbsp; | &nbsp;
-								= link_to merchant.link, "http://#{merchant.link}", class:"red"
-							- if merchant.address.present?
-								%br
-								= "#{merchant.address}, #{merchant.city} #{merchant.state} #{merchant.zip}"
-							%hr.edges
+					- cat.merchants.order("title").each do |merchant|
+						= render "item", merchant: merchant

@@ -9,6 +9,12 @@ class Merchant < ActiveRecord::Base
   has_many :merchant_categorizations
   has_many :merchant_categories, through: :merchant_categorizations
 
+  after_save :expire_cache
+
+  def expire_cache
+  	Rails.cache.delete "merchant-#{id}-item"
+  end
+
   def self.locations
   	select("distinct market_location").where("market_location is not null and market_location != ''").order("market_location").map{|m| m.market_location}
   end

@@ -48,7 +48,7 @@
 
 	%hr.tag.green{style:"margin-top:220px"}
 	%img.tag{src:"/assets/tag-tumbler.png"}
-	%h4.green.tag-headline Tumbler Feed
+	%h4.green.tag-headline New on Tumbler
 	= cache "tumbler feed", expires_in: 1.hour do
 		.indent{style:"min-height: 255px;"}
 			- doc = Nokogiri::HTML(open('http://blog.pikeplacemarket.org/rss'))

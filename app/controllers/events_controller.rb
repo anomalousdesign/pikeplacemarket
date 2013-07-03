@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+	
+  caches_action :show, :unless => Proc.new{|x| x.current_admin.present? }, :expires_in => 1.hour
 
 	def show
 		@event = Event.find(params[:id])

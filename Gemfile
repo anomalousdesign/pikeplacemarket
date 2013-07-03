@@ -23,6 +23,7 @@ gem 'twitter-bootstrap-rails'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'dalli'
+gem "memcachier"
 gem 'nokogiri'
 
 group :development do

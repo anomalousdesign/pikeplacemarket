@@ -10,7 +10,7 @@
 					= decade
 			.accordion-body.collapse{id: "collapse-#{decade}"}
 				.accordion-inner
-					- TimelineEvent.where("year >= ? and year <= ?", decade, decade + 9).each do |event|
+					- TimelineEvent.order("year").where("year >= ? and year <= ?", decade, decade + 9).each do |event|
 						.merchant
 							/ - if current_admin || Editables::EditableImage.find_by_name("event-thumb-#{event.id}-1").present?
 							.row-fluid

@@ -11,4 +11,4 @@
 			.accordion-body.collapse{id: "collapse-#{cat.id}", class: "mc-#{cat.slug}"}
 				.accordion-inner
 					- cat.merchants.order("title").each do |merchant|
-						= render "item", merchant: merchant
+						= render "merchants/item", merchant: merchant

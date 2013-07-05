@@ -28,9 +28,9 @@
 					.weekday
 						= event.start.strftime("%A")
 					.date-text
-						= event.start.strftime("%m/%e")
+						= event.start.strftime("%-m/%e")
 					- if event.multiple_days?
-						= "through #{event.end.strftime("%m/%e")}"
+						= "through #{event.end.strftime("%-m/%e")}"
 
 			.span4
 				.thumb

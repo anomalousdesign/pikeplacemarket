@@ -7,7 +7,7 @@
 		= editable "#{spotlight} Title" do
 			= spotlight
 	.indent
-		= editable_image_tag "#{spotlight} Thumb", 300, 150
+		= editable_image_tag "#{spotlight.gsub("'","")} Thumb", 300, 150
 		= editable "#{spotlight} Body" do
 			%br
 			%strong.red Quam Elit Aenean Tristique et ala 

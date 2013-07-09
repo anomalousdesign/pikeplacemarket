@@ -6,8 +6,8 @@
 		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
 		%meta{:name => "viewport", :content => "width=1000"}
 		%title= content_for?(:title) ? yield(:title) : "Pike Place Market"
-		%meta{:content => "", :name => "description"}
-		%meta{:content => "", :name => "author"}
+		%meta{:name => "description", :content => "Pike Place Market is Seattle’s original farmers market and the center of locally sourced, artisan and specialty foods.  Founded in 1907, the Market is home to farmers, a daily crafts market, unique owner-operated shops, restaurants and services." }
+		%meta{:name => "keywords", :content => "Pike Place Market, Pike Place, farmers market, seafood, fish, specialty foods, artisan, handmade, crafts, shopping, restaurants" }
 		%link{:href => "http://fonts.googleapis.com/css?family=Fjalla+One|Quattrocento+Sans|Sanchez", :rel => "stylesheet", :type => "text/css"}
 		= stylesheet_link_tag		"application", :media => "all"
 		= javascript_include_tag "application"

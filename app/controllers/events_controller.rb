@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 	end
 
 	def create
+		return redirect_to :back unless params[:event][:title].present?
 		params[:event][:under_review] = true
 		event = Event.create(params[:event])
 		flash[:notice] = "Thanks! We will review your event."
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
 				"<br /><br />",
 			]
 		end
-		AppMailer.send_mail("gabecoyne@gmail.com", "Event Needs Review", msg).deliver
+		AppMailer.send_mail("info@pikeplacemarket.org", "Event Needs Review", msg).deliver
 		redirect_to :back
 	end
 

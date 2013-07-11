@@ -16,4 +16,6 @@ PikeplacemarketOrg::Application.routes.draw do
 
   root :to => "static#home"
 
+  match '/*paths' => redirect('/') # any unfound paths will redirect home
+
 end

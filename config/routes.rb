@@ -1,6 +1,8 @@
 PikeplacemarketOrg::Application.routes.draw do
 
-	get '/news_events/pc1north', to: redirect('/pages/pc-1-north-rfp-rfq')
+  get '/news_events/pc1north', to: redirect('/pages/pc-1-north-rfp-rfq')
+  get '/visitor_info/hours', to: redirect('/pages/hours-calendar')
+  get '/explore_the_market', to: redirect('/pages/explore-the-market')
 
   devise_for :admins
 

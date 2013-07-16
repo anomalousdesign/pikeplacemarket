@@ -15,26 +15,30 @@
 				.span7
 					= f.text_field :title, placeholder: "Name of Event"
 				.span5
-					%label{style: "width:40%"} Event Start Date
-					= f.date_select :start
+					%label{style: "width:40%; margin-top:-30px"} Event Start Date
+					.date-select
+						= f.date_select :start
 			.row-fluid
 				.span7
 					= f.text_field :business, placeholder: "Name of Business"
 				.span5
 					%label{style: "width:40%"} Event End Date
-					= f.date_select :end
+					.date-select
+						= f.date_select :end
 			.row-fluid
 				.span7
 					= f.text_field :location, placeholder: "Location in Market"
 				.span5
 					%label{style: "width:40%"} Start Time
-					= f.time_select :start
+					.date-select
+						= f.time_select :start
 			.row-fluid
 				.span7
 					= f.text_field :address, placeholder: "Address"
 				.span5
 					%label{style: "width:40%"} End Time
-					= f.time_select :end
+					.date-select
+						= f.time_select :end
 
 					/ = f.select_field :address, placeholder: "Address"
 			.row-fluid

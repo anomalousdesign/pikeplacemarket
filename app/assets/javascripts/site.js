@@ -11,6 +11,7 @@ String.prototype.squeeze = function() {
 };
 
 $(function(){
+
 	// Open expand menus for current page
 	// $("a[href*='"+location.pathname+"']").addClass("active").parents("li").find(".expand").click()
 	if(location.pathname != "/"){
@@ -24,14 +25,26 @@ $(function(){
 
 	$(".modal").appendTo("body"); // this fixes modals in strange dom places
 
-	$(".events-index select").change(function(){
-		// location.href = location.pathname + "?tag=" + $(this).val()
-		if($(".events-index select").val() == "Category") return nil;
-		$(".event-item").each(function(){
-			c = $(".events-index select").val().toLowerCase().split(" ").join("_")
-			if($(this).hasClass(c)) $(this).slideDown(100);
-			else $(this).slideUp(100);
-		})
+	// $(".events-index select").change(function(){
+	// 	// location.href = location.pathname + "?tag=" + $(this).val()
+	// 	if($(".events-index select").val() == "Category") return nil;
+	// 	$(".event-item").each(function(){
+	// 		c = $(".events-index select").val().toLowerCase().split(" ").join("_")
+	// 		if($(this).hasClass(c)) $(this).slideDown(100);
+	// 		else $(this).slideUp(100);
+	// 	})
+	// });
+
+	$(".events-index select").selectbox({
+		onChange: function(value, obj){
+			// location.href = location.pathname + "?tag=" + $(this).val()
+			if(value == "Category") return null;
+			$(".event-item").each(function(){
+				c = value.toLowerCase().split(" ").join("_")
+				if($(this).hasClass(c)) $(this).slideDown(100);
+				else $(this).slideUp(100);
+			})
+		}
 	});
 
 	$(".events-index input").keyup(function(){
@@ -61,22 +74,54 @@ $(function(){
 		});
 	});
 
-	$("select.location").change(function(){
-		$("#directory-search input").val($("select.location").val()).keyup();
+	// $("#quick-search select").change(function(){
+	// 	if($(this).val() == "") return false;
+	// 	$("#quick-search").submit();
+	// });
+	
+	$("#quick-search select.location").selectbox({
+		onChange: function(value, obj){
+			if(value == "") return false;
+			location.href = "/directory?location="+value
+		}
+	});
+	
+	$("#quick-search select.category").selectbox({
+		onChange: function(value, obj){
+			if(value == "") return false;
+			location.href = "/directory?category="+value
+			// $("#quick-search").submit();
+		}
 	});
 
-	$("select.category").change(function(){
-		$(".accordion.main .accordion-body").removeClass("in");
-		$(".accordion.main .accordion-heading").removeClass("active");
-
-		accordion = $("#accordion-"+$(this).val());
-		accordion.find(".accordion-body").addClass("in");
-		accordion.find(".accordion-heading").addClass("active");
+	// $("select.location").change(function(){
+	// 	$("#directory-search input").val($("select.location").val()).keyup();
+	// });
+	
+	$("#directory-search select.location").selectbox({
+		onChange: function(value, obj){
+			$("#directory-search input").val(value).keyup();
+		}
 	});
 
-	$("#quick-search select").change(function(){
-		if($(this).val() == "") return false;
-		$("#quick-search").submit();
+	// $("select.category").change(function(){
+	// 	$(".accordion.main .accordion-body").removeClass("in");
+	// 	$(".accordion.main .accordion-heading").removeClass("active");
+
+	// 	accordion = $("#accordion-"+$(this).val());
+	// 	accordion.find(".accordion-body").addClass("in");
+	// 	accordion.find(".accordion-heading").addClass("active");
+	// });
+
+	$("#directory-search select.category").selectbox({
+		onChange: function(value, obj){
+			$(".accordion.main .accordion-body").removeClass("in");
+			$(".accordion.main .accordion-heading").removeClass("active");
+
+			accordion = $("#accordion-"+value);
+			accordion.find(".accordion-body").addClass("in");
+			accordion.find(".accordion-heading").addClass("active");
+		}
 	});
 
 	$(".accordion-heading").click(function(){
@@ -91,13 +136,19 @@ $(function(){
 	$("footer .dropdown-menu").addClass("dropup-menu");
 
 	setTimeout(function(){
-		if(params.keyword != "" && params.keyword != undefined) 
+		if(params.keyword != "" && params.keyword != undefined){
 			$("#directory-search input").val(params.keyword.split("+").join(" ")).keyup();
-		if(params.location != "" && params.location != undefined) 
+		}
+		if(params.location != "" && params.location != undefined){
 			$("#directory-search input").val(params.location.split("+").join(" ")).keyup();
-		if(params.category != "" && params.category != undefined) 
-			$("select.category").val(params.category).change();
+		}
+		if(params.category != "" && params.category != undefined){
+			// $("select.category").val(params.category).change();
+			$("[rel="+params.category.split(" ").join("-")+"]").click()
+		}
 	}, 500);
+
+	$("select").selectbox();
 
 })
 

@@ -4,6 +4,8 @@ PikeplacemarketOrg::Application.routes.draw do
   get '/visitor_info/hours', to: redirect('/pages/hours-calendar')
   get '/explore_the_market', to: redirect('/pages/explore-the-market')
 
+  get 'clear-cache' => "application#clear_cache"
+
   devise_for :admins
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'

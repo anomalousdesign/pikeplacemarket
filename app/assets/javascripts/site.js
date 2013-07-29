@@ -1,3 +1,10 @@
+// HTML5 for IE8
+document.createElement("article");  
+document.createElement("footer");  
+document.createElement("header");  
+document.createElement("hgroup");  
+document.createElement("nav"); 
+
 // params hash from query string
 var pairs = location.search.replace("?","").split('&');
 var params = {};

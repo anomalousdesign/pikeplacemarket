@@ -61,7 +61,8 @@
 								.img{style:"background-image:url('#{img}')"}
 								/ = image_tag item.css("description").first.content.split("<img")[1].split("src=\"").last.split('"').first
 						- else
-							= image_tag "default-blog-image.png"
+							.img{style:"background-image:url('/assets/default-blog-image.png')"}
+							/ = image_tag "default-blog-image.png"
 						%strong
 							%a.grey{href: item.css("guid").first.content }
 								= item.css("title").first.content

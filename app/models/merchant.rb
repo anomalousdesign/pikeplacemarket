@@ -11,6 +11,10 @@ class Merchant < ActiveRecord::Base
 
   after_save :expire_cache
 
+  def editables
+    Editable::EditableImage.where("name like ?", "merchant-thumb-#{id}")
+  end
+
   def expire_cache
   	Rails.cache.delete "merchant-#{id}-item"
   end

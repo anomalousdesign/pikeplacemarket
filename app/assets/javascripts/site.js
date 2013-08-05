@@ -157,6 +157,10 @@ $(function(){
 
 	$("select").selectbox();
 
+	$("img").error(function(){
+		$(this).attr("src", $(this).attr("src").split("cropped").join("original"));
+	})
+
 })
 
 if(navigator.userAgent.match("MSIE")){

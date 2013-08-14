@@ -8,10 +8,13 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		return redirect_to :back unless params[:event][:title].present?
+		if !params[:event][:title].present?
+			flash[:alert] = "Your event was not created. You need to include a title with your event."
+			return redirect_to :back 
+		end
 		params[:event][:under_review] = true
 		event = Event.create(params[:event])
-		flash[:notice] = "Thanks! We will review your event."
+		flash[:notice] = "Thank you for submitting your event! It will be posted upon review."
 		msg = [
 			AppMailer.hash_table("New Event", event.attributes),
 			"<br /><br /><h3>Review Now?</h3>",

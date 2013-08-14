@@ -14,7 +14,7 @@ for(i in pairs){
 }
 
 String.prototype.squeeze = function() {
-	return this.replace(/\s+/g, ' ').trim();
+	return this.replace(/\s+/g, ' ');
 };
 
 $(function(){
@@ -159,7 +159,7 @@ $(function(){
 
 	$("img").error(function(){
 		$(this).attr("src", $(this).attr("src").split("cropped").join("original"));
-	})
+	});
 
 })
 

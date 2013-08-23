@@ -15,6 +15,7 @@
 			.row-fluid
 				.span7
 					= f.text_field :title, placeholder: "Name of Event"
+					= f.text_field :subtitle, placeholder: "Subtitle of Event"
 				.span5
 					%label{style: "width:40%; margin-top:-30px"} Event Start Date
 					.date-select
@@ -73,4 +74,5 @@
 :css
 	.row-fluid{width:98%}
 	#submit-event{margin-left:-450px}
+	#event_subtitle{display:none}
 

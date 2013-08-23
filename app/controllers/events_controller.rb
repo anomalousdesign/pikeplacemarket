@@ -12,6 +12,10 @@ class EventsController < ApplicationController
 			flash[:alert] = "Your event was not created. You need to include a title with your event."
 			return redirect_to :back 
 		end
+		if params[:event][:subtitle].present?
+  		flash[:alert] = "We think you are a robot... Please contact if info@pikeplacemarket.org if you are a human."
+  		return redirect_to :back
+		end
 		params[:event][:under_review] = true
 		event = Event.create(params[:event])
 		flash[:notice] = "Thank you for submitting your event! It will be posted upon review."

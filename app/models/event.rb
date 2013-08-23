@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   friendly_id :title, use: :slugged
   scope :active, where("start > ? or \"end\" > ?", Time.now, Time.now).where("under_review is null or under_review != ?", true)
   acts_as_taggable_on :tags
-  attr_accessor :image
+  attr_accessor :image, :subtitle
   after_save :process_image
 
   def process_image

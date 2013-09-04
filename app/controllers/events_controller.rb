@@ -16,6 +16,11 @@ class EventsController < ApplicationController
   		flash[:alert] = "We think you are a robot... Please contact if info@pikeplacemarket.org if you are a human."
   		return redirect_to :back
 		end
+		if params[:event][:price].match(/free/i)
+			params[:event][:price] = 0
+		else
+			params[:event][:price].gsub!(/[^\d\.]/, '')
+		end
 		params[:event][:under_review] = true
 		event = Event.create(params[:event])
 		flash[:notice] = "Thank you for submitting your event! It will be posted upon review."
@@ -30,7 +35,7 @@ class EventsController < ApplicationController
 			msg += [			
 				"<img width='400' src='#{img.image.url}' />",
 				"<br /><br />",
-			]
+			].join("")
 		end
 		AppMailer.send_mail("info@pikeplacemarket.org", "Event Needs Review", msg).deliver
 		redirect_to :back

@@ -20,7 +20,7 @@
 	%h4.green Events
 	%hr.thin.green
 
-- Event.active.each do |event|
+- Event.active.order("start asc").each do |event|
 	.event-item{class: event.tag_list.to_s.gsub(",","").underscore}
 		.row-fluid
 			.span3

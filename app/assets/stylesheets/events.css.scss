@@ -58,6 +58,7 @@ a.submit-event:hover{
 	color:#fff;
 }
 
+.modal.ppm-modal{max-height: 80%; overflow: auto;}
 .modal.ppm-modal input, .modal.ppm-modal textarea{width:100%; background:none;}
 .modal.ppm-modal input[type=radio]{width:15px; margin-right:1px}
 label.radio{margin-right:20px; padding:0}

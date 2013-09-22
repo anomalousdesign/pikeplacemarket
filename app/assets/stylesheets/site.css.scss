@@ -433,6 +433,18 @@ img.tag{
 	line-height: 1.6em;
 	opacity:.75;
 }
+/* Kill blue hovers on IE in navs */
+.dropdown-menu > li:hover > a, 
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, 
+.dropdown-menu > li > a.active, .dropdown-menu > li > a.active:hover,
+.dropdown-menu > li a.active:hover,
+.nav > li:hover > a,
+.nav > li > a:hover, .nav > li > a:focus, .nav > li > a.active,
+.nav > li > a.active, .nav > li > a.active:hover{
+  background-color: none;
+  background-image: none;
+  filter: none;
+}
 .navbar .nav>.active>a, .navbar .nav>.active>a:hover, .navbar .nav>.active>a:focus{
 	box-shadow: none;
 	-moz-box-shadow: none;

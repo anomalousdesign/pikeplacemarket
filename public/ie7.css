@@ -1,0 +1,9 @@
+.ppm-foundation{
+	margin-top: -51px;
+}
+.navbar.header{
+	z-index:2000;
+}
+.navbar.secondary{
+	z-index:1000;
+}

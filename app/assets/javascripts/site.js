@@ -5,6 +5,11 @@ document.createElement("header");
 document.createElement("hgroup");  
 document.createElement("nav"); 
 
+// IE 10 doesn't use conditional comments
+if(navigator.userAgent.match("MSIE 10")){
+	$("head").append('<link href="/ie10.css" media="all" rel="stylesheet" type="text/css" />')
+}
+
 // params hash from query string
 var pairs = location.search.replace("?","").split('&');
 var params = {};
@@ -162,10 +167,6 @@ $(function(){
 	});
 
 })
-
-// if(navigator.userAgent.match("MSIE")){
-// 	$("head").append('<link href="/ie.css" media="all" rel="stylesheet" type="text/css" />')
-// }
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-16887145-1']);

@@ -7,7 +7,7 @@ document.createElement("nav");
 
 // IE 10 doesn't use conditional comments
 if(navigator.userAgent.match("MSIE 10")){
-	$("head").append('<link href="/ie10.css" media="all" rel="stylesheet" type="text/css" />')
+	$("head").append('<link href="/ie.css" media="all" rel="stylesheet" type="text/css" />')
 }
 
 // params hash from query string

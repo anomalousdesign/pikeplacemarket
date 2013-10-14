@@ -25,6 +25,7 @@ gem 'aws-sdk'
 gem 'dalli'
 gem "memcachier"
 gem 'nokogiri'
+gem "bugsnag"
 
 group :development do
 	gem 'quiet_assets'

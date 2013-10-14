@@ -25,6 +25,12 @@ h1, h2, h3, h4{
 	margin-top: 80px;
 	clear:right;
 }
+.logo{
+	background: url(/assets/logo.png) top left no-repeat;
+	width: 197px;
+	height: 142px;
+	display: inline-block;
+}
 hr.edges{
 	border: none;
 	background: url(/assets/hr-edges.png) center center no-repeat;

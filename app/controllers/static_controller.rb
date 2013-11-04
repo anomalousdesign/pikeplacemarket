@@ -7,7 +7,7 @@ class StaticController < ApplicationController
   		flash[:alert] = "We think you are a robot... Please contact if info@pikeplacemarket.org if you are a human."
   		return redirect_to :back
   	end
-  	if params[:email].empty?
+  	if params[:email].present? && params[:email].empty?
   		flash[:alert] = "We need at least need your email to sign you up."
   		return redirect_to :back
   	end

@@ -67,10 +67,10 @@
 					= f.text_field :email, placeholder: "Contact Email"
 				.span4
 					= f.file_field :image, style:"display:none"
-					%a{class: "btn img", onclick: "$('#event_image').click(); console.log(2)", style: "width:85%"}
+					%a{class: "btn img", onclick: "$('#event_image').click()", style: "width:85%"}
 						Upload a Photo (2MB max)
 				.span4
-					%a{class: "btn btn-primary", onclick:"$(this).html('Submitting, please wait...'); console.log(3); showFileSize(); $('#new_event').submit()", style: "width:85%"}
+					%a{class: "btn btn-primary", onclick:"checkFileSize();", style: "width:85%"}
 						Submit Event
 					/ = f.submit "Submit Event", class: "btn"
 
@@ -80,9 +80,9 @@
 	#event_subtitle{display:none}
 
 :javascript
-	console.log(0)
+	console.log(00)
 	$(".span4 .btn.btn-primary").click(function(){console.log(1)})
-	function showFileSize() { var input, file; input = document.getElementById('event_image'); file = input.files[0]; if(file.size > 2097152) { console.log("File is too large.");} else { console.log("File is just right.");}}
+	function checkFileSize() { var input, file; input = document.getElementById('event_image'); file = input.files[0]; if(file.size > 2097152) { e.preventDefault(); alert('The selected image file is too large. Please choose an image that is smaller than 2MB.');} else {$(this).html('Submitting, please wait...'); $('#new_event').submit();}}
 	
 	
 	

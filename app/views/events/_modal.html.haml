@@ -70,15 +70,14 @@
 					%a{class: "btn img", onclick: "$('#event_image').click()", style: "width:85%"}
 						Upload a Photo (2MB max)
 				.span4
-					%a{class: "btn btn-primary", onclick:"var input = document.getElementById('event_image'); var file = input.files[0]; if(file.size > 2097152) { e.preventDefault(); alert('The selected image file is too large. Please choose an image that is smaller than 2MB.');} else {$(this).html('Submitting, please wait...'); $('#new_event').submit();}", style: "width:85%"}
+					%a{class: "btn btn-primary", onclick:"checkFileSize();", style: "width:85%"}
 						Submit Event
 					/ = f.submit "Submit Event", class: "btn"
 
 :css
 	.row-fluid{width:98%}
 	#submit-event{margin-left:-450px}
-	#event_subtitle{display:none}	
-	
+	#event_subtitle{display:none}
 
-	
-	
+:javascript
+	function checkFileSize() { var input = document.getElementById('event_image'); if(var file = input.files[0]; file.size > 2097152) { alert('The selected image file is too large. Please choose an image that is smaller than 2MB.');} else {$(this).html('Submitting, please wait...'); $('#new_event').submit();}}

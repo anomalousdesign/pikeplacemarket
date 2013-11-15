@@ -67,7 +67,7 @@
 					= f.text_field :email, placeholder: "Contact Email"
 				.span4
 					= f.file_field :image, style:"display:none"
-					%a{class: "btn img", onclick: "$('#event_image').click()", style: "width:85%"}
+					%a{class: "btn img", onclick: "$('#event_image').click(); console.log(2)", style: "width:85%"}
 						Upload a Photo (2MB max)
 				.span4
 					%a{class: "btn btn-primary", onclick:"$(this).html('Submitting, please wait...'); $('#new_event').submit()", style: "width:85%"}
@@ -80,11 +80,4 @@
 	#event_subtitle{display:none}
 
 :javascript
-	console.log(1);
-    $(document).ready( function() {
-		console.log(2);
-		$('a.btn.img').click(function() {
-			console.log(3);
-		});
-		
-    });
+	console.log(1)

@@ -67,10 +67,10 @@
 					= f.text_field :email, placeholder: "Contact Email"
 				.span4
 					= f.file_field :image, style:"display:none"
-					%a{class: "btn img", onclick: "$('#event_image').click(); console.log(2)", style: "width:85%"}
+					%a{id: "fileinput", class: "btn img", onclick: "$('#event_image').click(); console.log(2)", style: "width:85%"}
 						Upload a Photo (2MB max)
 				.span4
-					%a{class: "btn btn-primary", onclick:"$(this).html('Submitting, please wait...'); console.log(3); $('#new_event').submit()", style: "width:85%"}
+					%a{class: "btn btn-primary", onclick:"$(this).html('Submitting, please wait...'); console.log(3); showFileSize(); $('#new_event').submit()", style: "width:85%"}
 						Submit Event
 					/ = f.submit "Submit Event", class: "btn"
 
@@ -82,6 +82,7 @@
 :javascript
 	console.log(0)
 	$(".span4 .btn.btn-primary").click(function(){console.log(1)})
+	function showFileSize() { var input, file; if (!window.FileReader) {console.log("The file API isn't supported on this browser yet."); return;} input = document.getElementById('fileinput') if (!input) {console.log("Um, couldn't find the fileinput element.");} else if (!input.files) {console.log("This browser doesn't seem to support the `files` property of file inputs.");} else if (!input.files[0]) {console.log("Please select a file before clicking 'Load'");} else {file = input.files[0]; console.log("File " + file.name + " is " + file.size + " bytes in size"); }}
 	
 	
 	

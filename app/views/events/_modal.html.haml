@@ -79,3 +79,20 @@
 	#submit-event{margin-left:-450px}
 	#event_subtitle{display:none}
 
+:javascript
+    $(document).ready( function() {
+		input = document.getElementById('fileinput');
+		if (!input) {
+			console.log("Um, couldn't find the fileinput element.");
+		}
+		else if (!input.files) {
+			console.log("This browser doesn't seem to support the `files` property of file inputs.");
+		}
+		else if (!input.files[0]) {
+			console.log("Please select a file before clicking 'Load'");
+		}
+		else {
+			file = input.files[0];
+			console.log("File " + file.name + " is " + file.size + " bytes in size");
+		}
+    } );

@@ -80,8 +80,6 @@
 	#event_subtitle{display:none}
 
 :javascript
-	console.log(00)
-	$(".span4 .btn.btn-primary").click(function(){console.log(1)})
 	function checkFileSize() { var input, file; input = document.getElementById('event_image'); file = input.files[0]; if(file.size > 2097152) { e.preventDefault(); alert('The selected image file is too large. Please choose an image that is smaller than 2MB.');} else {$(this).html('Submitting, please wait...'); $('#new_event').submit();}}
 	
 	

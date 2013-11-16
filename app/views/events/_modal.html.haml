@@ -80,4 +80,5 @@
 	#event_subtitle{display:none}
 
 :javascript
-	function checkFileSize() { var input, file; input = document.getElementById('event_image'); file = input.files[0]; if(typeof(file) != "undefined" && file !== null) { if(file.size > 2097152) { alert('The selected image file is too large. Please choose an image that is smaller than 2MB.');}} else {$(this).html('Submitting, please wait...'); $('#new_event').submit();}}
+	function submitEvent() { $(".span4 a.btn.btn-primary").html('Submitting, please wait...'); $('#new_event').submit();}
+	function checkFileSize() { var input, file, submitPic; input = document.getElementById('event_image'); file = input.files[0]; submitPic = 0; if(typeof(file) != "undefined" && file !== null) {	if(file.size > 2097152) { alert('The selected image file is too large. Please choose an image that is smaller than 2MB.'); submitPic = 1; } else { submitEvent(); }} if(submitPic = 0) { submitEvent();}}

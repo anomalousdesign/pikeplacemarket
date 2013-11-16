@@ -80,4 +80,4 @@
 	#event_subtitle{display:none}
 
 :javascript
-	function checkFileSize() { var input, file; input = document.getElementById('event_image'); if(file = input.files[0]; file.size > 2097152) { alert('The selected image file is too large. Please choose an image that is smaller than 2MB.');} else {$(this).html('Submitting, please wait...'); $('#new_event').submit();}}
+	function checkFileSize() { var input, file; input = document.getElementById('event_image'); if(file = input.files[0] && file.size > 2097152) { alert('The selected image file is too large. Please choose an image that is smaller than 2MB.');} else {$(this).html('Submitting, please wait...'); $('#new_event').submit();}}

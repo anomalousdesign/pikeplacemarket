@@ -67,10 +67,10 @@
 					= f.text_field :email, placeholder: "Contact Email"
 				.span4
 					= f.file_field :image, style:"display:none"
-					%a{class: "btn", onclick: "$('#event_image').click()", style: "width:85%"}
+					%a{class: "btn img", onclick: "$('#event_image').click()", style: "width:85%"}
 						Upload a Photo (2MB max)
 				.span4
-					%a{class: "btn btn-primary", onclick:"$(this).html('Submitting, please wait...'); $('#new_event').submit()", style: "width:85%"}
+					%a{class: "btn btn-primary", onclick:"checkFileSize();", style: "width:85%"}
 						Submit Event
 					/ = f.submit "Submit Event", class: "btn"
 
@@ -79,3 +79,6 @@
 	#submit-event{margin-left:-450px}
 	#event_subtitle{display:none}
 
+:javascript
+	function submitEvent() { $(".span4 a.btn.btn-primary").html('Submitting, please wait...'); $('#new_event').submit();}
+	function checkFileSize() { var input, file, submitPic; input = document.getElementById('event_image'); file = input.files[0]; submitPic = 0; if(typeof(file) != "undefined" && file !== null) {	if(file.size > 2097152) { alert('The selected image file is too large. Please choose an image that is smaller than 2MB. If need be you can also email your image to info@pikeplacemarket.org.'); submitPic = 1; } else { submitEvent(); }} if(submitPic = 0) { submitEvent();}}

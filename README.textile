@@ -21,3 +21,5 @@ h1. Default User
 
 * username: admin@pikeplacemarket.org
 * password: pikeplace
+
+test

@@ -5,7 +5,6 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'debugger'
 gem 'pg'
 gem 'haml'
 gem 'devise'
@@ -28,6 +27,7 @@ gem 'nokogiri'
 gem "bugsnag"
 
 group :development do
+	gem 'debugger'
 	gem 'quiet_assets'
 end
 

@@ -23,7 +23,8 @@ module PagesHelper
       if page.link.present?
         html << link_to(page.label, page.link)
       else
-        html << link_to(page.label, page_path(page))
+        html << link_to(page.label, "/#{page.slug}")
+        # html << link_to(page.label, page_path(page))
       end
       html << page_nav(pages: page.children, class: (is_dropdown ? "dropdown-menu" : "")) if !page.children.empty?
       html << "</li>"

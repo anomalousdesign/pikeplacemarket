@@ -20,6 +20,8 @@ PikeplacemarketOrg::Application.routes.draw do
 
   root :to => "static#home"
 
+  get ":id" => "pages#show"
+  
   match '/*paths' => redirect('/') # any unfound paths will redirect home
 
 end

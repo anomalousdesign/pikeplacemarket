@@ -20,10 +20,12 @@ h1, h2, h3, h4{
 }
 .logo-header{
 	padding: 20px 0;
+	position: relative;
 }
 .ppm-foundation{
-	margin-top: 80px;
-	clear:right;
+	position: absolute;
+	right: 0;
+	bottom: 6px;
 }
 .logo{
 	background: url(/assets/logo.png) top left no-repeat;

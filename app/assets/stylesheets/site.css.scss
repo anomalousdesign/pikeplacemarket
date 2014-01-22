@@ -264,6 +264,7 @@ footer{
 		font-size: 1.2em; 
 		padding-right: 25px;
 		background: url(/assets/footer-arrow.png) right center no-repeat;
+		white-space: nowrap;
 	}
 	.navbar .nav>.active>a:hover, .navbar .nav>.active>a, .navbar .nav>.active>a:focus,
 	.navbar .nav>li>a:hover, .navbar .nav>li>a:focus{

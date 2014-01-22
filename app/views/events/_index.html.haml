@@ -9,7 +9,7 @@
 			%h4.green Sort By
 			%select
 				%option Category
-				- Event.tag_counts.each do |name, count|
+				- Event.tag_counts.all(:order => 'name ASC').each do |name, count|
 					%option
 						= name
 		.span4

@@ -7,7 +7,7 @@
 		= form_for Event.new(start: Time.now.to_date + 12.hours, end: Time.now.to_date + 12.hours), enctype:"multipart/form-data" do |f|
 			.row-fluid
 				%h4.green Select a Category
-				- Event.tag_counts.each do |name, count|
+				- Event.tag_counts.all(:order => 'name ASC').each do |name, count|
 					%input{type: "radio", name: "event[tag_list]", value: name}
 					%label.radio
 						= name

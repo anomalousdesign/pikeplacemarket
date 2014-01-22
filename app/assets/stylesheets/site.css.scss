@@ -104,12 +104,14 @@ ul.tags{
 		font-family: 'Fjalla One', sans-serif;
 		color: #c23c33;
 		text-shadow: none;
-		font-size: 1.6em;
+		font-size: 1.5em;
 		text-transform: uppercase;
 		padding: 0 15px 0 5px;
 		margin: 6px 15px 5px 0;
 		border-left: solid 1px #f28b00;
 		background: url(/assets/header-nav-down-arrow.gif) right center no-repeat;
+		white-space: nowrap;
+		letter-spacing: -.015em;
 	}
 	.nav>li>a:hover, .nav>li>a.active{
 		color: #f28b00;
@@ -120,6 +122,9 @@ ul.tags{
 	}
 	.nav>li:last-child>a{
 		margin-right: 0;
+	}
+	.nav{
+		width: 103%;
 	}
 }
 .navbar.secondary{
@@ -138,6 +143,7 @@ ul.tags{
 		background: url(/assets/sub-nav-down-arrow.png) right center no-repeat;
 		border-left: solid 1px #f4a02e;
 		font-style: italic;
+		white-space: nowrap;
 	}
 	.nav>li>a.directory{
 		padding-right: 50px;
@@ -324,6 +330,9 @@ footer{
 	/*margin-left: -160px;*/
 	left: 0;
 	top: 35px;
+}
+.secondary>.nav>.dropdown-submenu>.dropdown-menu{
+	left: 11px;
 }
 .body, .sidebar{
 	padding-bottom: 20px;

@@ -46,7 +46,7 @@ a.submit-event, .modal.ppm-modal .btn{
 .modal.ppm-modal .btn-primary{
 	background: #b12029;
 }
-.modal.ppm-modal .btn:hover{
+.modal.ppm-modal .btn:hover, .modal.ppm-modal .btn.active{
 	background-color: #666;
 }
 a.submit-event{

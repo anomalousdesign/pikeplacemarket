@@ -78,7 +78,13 @@
 	.row-fluid{width:98%}
 	#submit-event{margin-left:-450px}
 	#event_subtitle{display:none}
+	html[data-useragent*='MSIE 10.0'] #event_image{display:inline !important; position:absolute; width:277px; height:25px, z-index:1; cursor:pointer; overflow: hidden; opacity: 0;}
+	#event_image::-ms-browse{width: 270px; position: relative; right: -50px;}
+	#event_image::-ms-value{display: none;}
 
 :javascript
+	var doc = document.documentElement;
+	doc.setAttribute('data-useragent', navigator.userAgent);
+	$('#event_image').hover(function() { console.log('in'); $('.btn.img').addClass('active'); }, function() { console.log('out'); $('.btn.img').removeClass('active'); });
 	function submitEvent() { $(".span4 a.btn.btn-primary").html('Submitting, please wait...'); $('#new_event').submit();}
 	function checkFileSize() { var input, file, submitPic; input = document.getElementById('event_image'); file = input.files[0]; submitPic = 0; if(typeof(file) != "undefined" && file !== null) {	if(file.size > 2097152) { alert('The selected image file is too large. Please choose an image that is smaller than 2MB. If need be you can also email your image to info@pikeplacemarket.org.'); submitPic = 1; } else { submitEvent(); }} else { submitEvent(); } if(submitPic = 0) { submitEvent();}}

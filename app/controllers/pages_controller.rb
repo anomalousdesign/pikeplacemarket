@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   
   def show
     @page = Page.find(params[:id]) rescue nil
-    return redirect_to "/" if @page.nil?
+    return redirect_to "/" if @page.nil? or (!@page.live && !current_admin)
     render_in_template
   end
   

@@ -18,7 +18,7 @@ module PagesHelper
 	  	html << "<li class='home'><a href='/'>#{args[:home_label]}</a></li>"
 	  end
     args[:pages].each do |page|
-      is_dropdown = !page.children.empty? && args[:menu].nil?
+      is_dropdown = !page.children.live.empty? && args[:menu].nil?
       html << "<li class='#{page.label.gsub(" ","_").downcase} #{is_dropdown ? "dropdown-submenu" : ""}'>"
       if page.link.present?
         html << link_to(page.label, page.link)
@@ -26,7 +26,7 @@ module PagesHelper
         html << link_to(page.label, "/#{page.slug}")
         # html << link_to(page.label, page_path(page))
       end
-      html << page_nav(pages: page.children, class: (is_dropdown ? "dropdown-menu" : "")) if !page.children.empty?
+      html << page_nav(pages: page.children.live, class: (is_dropdown ? "dropdown-menu" : "")) if !page.children.live.empty?
       html << "</li>"
     end
     html << capture_haml{yield(block)} if block.present?

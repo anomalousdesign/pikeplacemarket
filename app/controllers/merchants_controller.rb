@@ -4,14 +4,11 @@ class MerchantsController < ApplicationController
 	def index
 		respond_to do |format|
 			format.json{
-				@merchants = {}
-				MerchantCategory.main.each{|category|
-					@merchants[category.name] = {}
-					category.children.map{|child|
-						@merchants[category.name][child.name] = child.merchants.as_json
-					}
-				}
-				render json: @merchants
+				if params[:deep].present?
+					render  json: Merchant.deep_hash(MerchantCategory.main)
+				else
+					render json: Merchant.nested_hash(MerchantCategory.main)
+				end
 			}
 			format.html{
 				render :index

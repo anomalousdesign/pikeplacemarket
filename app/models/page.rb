@@ -7,6 +7,13 @@ class Page < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :title, use: :slugged
+
+  def live
+    return false unless publish?
+    return false if live_start.present? && live_start > Time.zone.now
+    return false if live_end.present? && live_end < Time.zone.now
+    true
+  end
   
   def template_enum
     path = Rails.root.join('app', 'views', 'pages', "*")

@@ -12,6 +12,10 @@ class EventsController < ApplicationController
 			flash[:alert] = "Your event was not created. You need to include a title with your event."
 			return redirect_to :back 
 		end
+        if params[:event][:image].size >= 2097152
+        flash[:alert] = "Your event was not created. Images must be smaller than 2MB."
+        return redirect_to :back
+        end
 		if params[:event][:subtitle].present?
   		flash[:alert] = "We think you are a robot... Please contact if info@pikeplacemarket.org if you are a human."
   		return redirect_to :back

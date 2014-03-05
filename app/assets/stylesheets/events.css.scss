@@ -65,9 +65,10 @@ label.radio{margin-right:20px; padding:0}
 .modal.ppm-modal textarea{height:100px}
 .modal.ppm-modal form select{width:auto; background-image:none;}
 .modal.ppm-modal label{display:inline-block}
-.modal.ppm-modal input[type=text], .modal.ppm-modal textarea{border: solid 1px #91c376; border-radius:0}
+.modal.ppm-modal input[type=text], .modal.ppm-modal input[type=email], .modal.ppm-modal textarea{border: solid 1px #91c376; border-radius:0}
 .modal.ppm-modal input[type=file]{border:none; border-radius:0}
 .modal.ppm-modal .modal-body{max-height:none}
 .modal.ppm-modal{border-radius:0}
 .modal.ppm-modal .modal-body{padding: 0 20px}
 .modal.ppm-modal hr{margin: 0 -20px 20px -20px}
+.modal.ppm-modal#subscribe .website{display: none;}

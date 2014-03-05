@@ -3,14 +3,17 @@
 		%hr.red
 		%h1.red Subscribe
 		%form{action: "/signup", method: :post, validate: true}
-			%input{type:'text', name: "first_name", placeholder: "First Name", style: "width:97%; margin-top:5px", type: "text"}
-			%input{type:'text', name: "last_name", placeholder: "Last Name", style: "width:97%; margin-top:5px", type: "text"}
+			%input{type:'text', name: "first_name", placeholder: "First Name", style: "width:97%; margin-top:5px"}
+			%input{type:'text', name: "last_name", placeholder: "Last Name", style: "width:97%; margin-top:5px"}
 			%input{type:'email', name: "email", required: "true", placeholder: "Email Address", style: "width:97%; margin-top:5px"}
-			%input.company{type:'text', name: "company", placeholder: "Company", style: "width:97%; margin-top:5px", type: "text"}
+			%label.website{:for => "website"} The following field should be skipped by humans:
+			%input.website{type:'text', name: "website", placeholder: "Website", style: "width:97%; margin-top:5px"}
+			%input.category{type:'hidden', name: "category", placeholder: "Category", style: "width:97%; margin-top:5px"}
 			%input{type:'submit', value:'Join Now', class: 'submit btn btn-primary pull-right'}
 		%div{style:"height:30px"}
 
 :javascript
-	$(function(){
-		$("#subscribe .company").hide()
-	})
+	var dNow = new Date();
+	var utc = new Date(dNow.getTime() + dNow.getTimezoneOffset() * 60000)
+	var utcdate = (utc.getFullYear() + ( '0' + (utc.getMonth()+1) ).slice( -2 ) + ( '0' + (utc.getDate()) ).slice( -2 ));
+	$(window).load(function() { setTimeout(function() { $('input.category').val(utcdate); }, 5000); });

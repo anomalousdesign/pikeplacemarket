@@ -137,6 +137,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack-timeout (0.0.4)
     rails (3.2.11)
       actionmailer (= 3.2.11)
       actionpack (= 3.2.11)
@@ -249,6 +250,7 @@ DEPENDENCIES
   paperclip
   pg
   quiet_assets
+  rack-timeout
   rails (= 3.2.11)
   rails_admin
   rails_admin_nestable

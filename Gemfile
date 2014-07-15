@@ -25,6 +25,7 @@ gem 'dalli'
 gem "memcachier"
 gem 'nokogiri'
 gem "bugsnag"
+gem "rack-timeout"
 
 group :development do
 	gem 'debugger'

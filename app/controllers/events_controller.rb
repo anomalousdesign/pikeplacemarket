@@ -43,7 +43,7 @@ class EventsController < ApplicationController
 				"<br /><br />",
 			].join("")
 		end
-		AppMailer.send_mail("info@pikeplacemarket.org", "Event Needs Review", msg).deliver
+		AppMailer.send_mail("emily.crawford@pikeplacemarket.org", "Event Needs Review", msg).deliver
 		redirect_to :back
 	end
 

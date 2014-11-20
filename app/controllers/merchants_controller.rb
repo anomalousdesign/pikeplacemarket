@@ -6,7 +6,18 @@ class MerchantsController < ApplicationController
 			format.html{
 				render :index
 			}
+			format.json{
+				# if params[:deep].present?
+					render  json: Merchant.deep_hash(MerchantCategory.main)
+				# else
+				# 	render json: Merchant.nested_hash(MerchantCategory.main)
+				# end
+			}
 		end
+	end
+
+	def category_json(category)
+		category.children.as_json
 	end
 
 end

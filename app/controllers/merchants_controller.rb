@@ -3,15 +3,15 @@ class MerchantsController < ApplicationController
 
 	def index
 		respond_to do |format|
+			format.html{
+				render :index
+			}
 			format.json{
 				# if params[:deep].present?
 					render  json: Merchant.deep_hash(MerchantCategory.main)
 				# else
 				# 	render json: Merchant.nested_hash(MerchantCategory.main)
 				# end
-			}
-			format.html{
-				render :index
 			}
 		end
 	end

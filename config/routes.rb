@@ -4,6 +4,9 @@ PikeplacemarketOrg::Application.routes.draw do
   get '/visitor_info/hours', to: redirect('/pages/hours-calendar')
   get '/explore_the_market', to: redirect('/pages/explore-the-market')
   get '/events/magic-in-the-market', to: redirect('/events/magic-in-the-market-holiday-celebration')
+  get '/waterfront-entrance', to: redirect('/marketfront')
+  get '/waterfront-entrance-faq', to: redirect('/marketfront-faq')
+  get '/waterfront-entrance-documents', to: redirect('/marketfront-documents')
 
   get 'clear-cache' => "application#clear_cache"
 

@@ -29,23 +29,8 @@
 	
 
 .sidebar
-	.market-directory-searchbox
-		%a{href: "/directory"}
-			= image_tag "market-directory-pointer.png", width: 276
-		%form#quick-search{action: "/directory"}
-			%strong Quick Search By:
-			%input{name: "keyword", type: "text"}
-			%select.category{name: "category"}
-				%option{value:""} Category
-				- MerchantCategory.main.each do |mc|
-					%option{value: mc.slug}
-						= mc.name
-			%select.location{name: "location"}
-				%option{value:""} Location
-				- Merchant.locations.each do |location|
-					%option
-						= location
-
+	.atrium
+		= render "pages/spotlight", spotlight: "Atrium", header: {color: "red"}
 	%hr.tag.green{style:"margin-top:220px"}
 	%img.tag{src:"/assets/tag-tumbler.png"}
 	%h4.green.tag-headline New on Tumblr

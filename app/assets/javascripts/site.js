@@ -23,6 +23,40 @@ String.prototype.squeeze = function() {
 };
 
 $(function(){
+	var month = new Array( "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+	$('#calendar').fullCalendar({
+		header: {
+			left:   'prev',
+			center: 'title',
+			right:  'next'
+		},
+		titleFormat: "MMMM<br /><p>YYYY</p>",
+		buttonText: {
+            prev: month[parseInt(new Date().getMonth(), 10) - 1],
+            next: month[parseInt(new Date().getMonth(), 10) + 1]
+        },
+
+	});
+	//var d = $('#calendar').fullCalendar('getDate');
+	var now = new Date();
+	now = now.getMonth();
+	var next = now+1;
+	var prev = now-1;
+	$('.fc-button-next').click(function(){
+		if(now == 11){ now = 0; } else { now = now+1; }
+		if(now == 11){ next = 0; } else { next = now+1; }
+		if(now == 0){ prev = 11; } else if(now == 1){ prev = 0; } else { prev = now-1; }
+		$('.fc-button-next').text(month[next]);
+		$('.fc-button-prev').text(month[prev]);
+	});
+	$('.fc-button-prev').click(function(){
+		if(now == 0){ now = 11; } else { now = now-1; }
+		if(now == 11){ next = 0; } else { next = now+1; }
+		if(now == 11){ prev = 11; } else if(now == 1){ prev = 0; } else { prev = now-1; }
+		console.log(prev+' '+now+' '+next);
+		$('.fc-button-next').text(month[next]);
+		$('.fc-button-prev').text(month[prev]);
+	});
 
 	// Open expand menus for current page
 	// $("a[href*='"+location.pathname+"']").addClass("active").parents("li").find(".expand").click()

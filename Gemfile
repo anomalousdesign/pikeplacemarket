@@ -14,12 +14,14 @@ gem 'rails_admin_nestable'
 gem 'rails_admin_tag_list'
 gem 'rails_admin_toggleable'
 gem 'jquery-rails'
+gem 'momentjs-rails'
 gem 'acts-as-taggable-on'
 gem 'friendly_id'
 gem 'ancestry'
 gem 'editables' #, path: "~/rails/editables"
 gem 'twitter-bootstrap-rails'
 gem 'paperclip'
+gem "fullcalendar-rails"
 gem 'aws-sdk'
 gem 'dalli'
 gem "memcachier"

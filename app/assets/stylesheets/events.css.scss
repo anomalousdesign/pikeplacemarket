@@ -1,3 +1,15 @@
+.fc-header-title{
+	h2, p{
+		color: #B1202A;
+	}
+	h2{
+		line-height: .85em;
+	}
+	p{
+		font-size: 14px;
+	}
+}
+
 .event-item{
 	.date{
 		background: #af292e;
@@ -30,7 +42,7 @@
 		margin-right: 10px;
 	}
 	td{
-		color: #999;
+		color: #2d2d2d;
 	}
 }
 a.submit-event, .modal.ppm-modal .btn{
@@ -47,7 +59,7 @@ a.submit-event, .modal.ppm-modal .btn{
 	background: #b12029;
 }
 .modal.ppm-modal .btn:hover, .modal.ppm-modal .btn.active{
-	background-color: #666;
+	background-color: #2d2d2d;
 }
 a.submit-event{
 	background: url(/assets/icon-calendar.png) 5px 4px no-repeat #b12029;

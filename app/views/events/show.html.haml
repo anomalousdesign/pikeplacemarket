@@ -1,4 +1,4 @@
-.body
+.event
 
 	%hr.red
 	%img.tag{src:"/assets/tag-calendar.png"}
@@ -8,22 +8,28 @@
 	%div{style:"height:30px"}
 
 	.row-fluid
-		.span6
+		.span6.img
 			= editable_image_tag "Event #{@event.id} Header", 400, 400
 			%div{style:"height:20px;"}
-			%a.btn2.btn2-green{href:"/pages/hours-calendar"}
+			%a.btn2.btn2-green{href:"/market-events"}
 				= image_tag "arrow-white-left.png"
 				Back to all events
 
-		.span6
+		.span6.text
 			%h4.green
-				= @event.start.strftime("%A, %B %e %Y")
+				= @event.start.strftime("%A, %B %e, %Y")
 				- if @event.start.to_date != @event.end.to_date
 					\-
-					%br
 					= @event.end.strftime("%B %e, %Y")
 
 			%table.event-details
+				%tr
+					%td
+						%h4
+							Event:
+					%td
+						= @event.title
+						
 				- if @event.start.strftime("%l:%M %P") != "12:00 am"
 					%tr
 						%td
@@ -31,13 +37,30 @@
 								Time:
 						%td
 							= "#{@event.start.strftime("%l:%M %P")} - #{@event.end.strftime("%l:%M %P")}"
+				
+				- if @event.business.present?
+					%tr
+						%td
+							%h4
+								Host:
+						%td
+							= @event.business
+
 				%tr
 					%td
 						%h4
-							Place:
+							Venue:
 					%td
 						= @event.location
-
+						
+				- if @event.address.present?
+					%tr
+						%td
+							%h4
+								Address:
+						%td
+							= link_to @event.address, "https://www.google.com/maps/place/#{@event.address},+Seattle,+WA+98101"
+							
 				- if @event.contact.present?
 					%tr
 						%td
@@ -55,9 +78,6 @@
 							= number_to_currency @event.price
 							- if @event.ticket_link.present?
 								|
-								= link_to "buy now", @event.ticket_link
+								= link_to "Buy Now", @event.ticket_link
 
 			= @event.details.html_safe
-
-.sidebar.pad
-	= render "layouts/subnav"

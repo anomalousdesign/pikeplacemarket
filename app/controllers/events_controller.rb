@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
-		@page = Page.find("hours-calendar")
+		@page = Page.find("market-events")
 	end
 
 	def create

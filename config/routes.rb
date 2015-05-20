@@ -1,7 +1,7 @@
 PikeplacemarketOrg::Application.routes.draw do
 
   get '/news_events/pc1north', to: redirect('/pages/pc-1-north-rfp-rfq')
-  get '/visitor_info/hours', to: redirect('/pages/hours-calendar')
+  get '/visitor_info/hours', to: redirect('/market-events')
   get '/explore_the_market', to: redirect('/pages/explore-the-market')
   get '/events/magic-in-the-market', to: redirect('/events/magic-in-the-market-holiday-celebration')
   get '/waterfront-entrance', to: redirect('/marketfront')

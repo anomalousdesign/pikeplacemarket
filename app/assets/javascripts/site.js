@@ -22,41 +22,70 @@ String.prototype.squeeze = function() {
 	return this.replace(/\s+/g, ' ');
 };
 
-$(function(){
+function fixTitle(){
+	var text = $('.fc-center h2').text();
+	text.replace('<br - br>', '<br />');
+	text = $.parseHTML(text);
+	$('.fc-center h2').html(text);
+	$('.fc-day-number').wrapInner('<span class="day"></span>');
+}
+
+$(document).ready(function(){
 	var month = new Array( "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-	$('#calendar').fullCalendar({
+	/*$('#calendar').fullCalendar({
+		eventSources: [
+            {
+                url: '/events.json',
+                type: 'GET',
+                data: function() {
+                    var cdate = new Date($('#calendar').fullCalendar('getDate'));
+                    return {
+                        month: cdate.getMonth() + 1,
+                        year: cdate.getFullYear(),
+                    }
+                },
+            }
+        ],
 		header: {
 			left:   'prev',
 			center: 'title',
 			right:  'next'
 		},
-		titleFormat: "MMMM<br /><p>YYYY</p>",
+		titleFormat: 'MMMM<br><p>YYYY</p>',
+		columnFormat: "dddd",
 		buttonText: {
             prev: month[parseInt(new Date().getMonth(), 10) - 1],
             next: month[parseInt(new Date().getMonth(), 10) + 1]
         },
-
+		eventLimit: true,
+		//eventLimitText: "View All",
+		views: {
+			agenda: {
+				eventLimit: 4,
+			}
+		},
 	});
-	//var d = $('#calendar').fullCalendar('getDate');
+	fixTitle();
 	var now = new Date();
 	now = now.getMonth();
 	var next = now+1;
 	var prev = now-1;
-	$('.fc-button-next').click(function(){
+	$('.fc-next-button').click(function(){
 		if(now == 11){ now = 0; } else { now = now+1; }
 		if(now == 11){ next = 0; } else { next = now+1; }
 		if(now == 0){ prev = 11; } else if(now == 1){ prev = 0; } else { prev = now-1; }
-		$('.fc-button-next').text(month[next]);
-		$('.fc-button-prev').text(month[prev]);
+		$('.fc-next-button').text(month[next]);
+		$('.fc-prev-button').text(month[prev]);
+		fixTitle();
 	});
-	$('.fc-button-prev').click(function(){
+	$('.fc-prev-button').click(function(){
 		if(now == 0){ now = 11; } else { now = now-1; }
 		if(now == 11){ next = 0; } else { next = now+1; }
-		if(now == 11){ prev = 11; } else if(now == 1){ prev = 0; } else { prev = now-1; }
-		console.log(prev+' '+now+' '+next);
-		$('.fc-button-next').text(month[next]);
-		$('.fc-button-prev').text(month[prev]);
-	});
+		if(now == 0){ prev = 11; } else { prev = now-1; }
+		$('.fc-next-button').text(month[next]);
+		$('.fc-prev-button').text(month[prev]);
+		fixTitle();
+	});*/
 
 	// Open expand menus for current page
 	// $("a[href*='"+location.pathname+"']").addClass("active").parents("li").find(".expand").click()

@@ -15,7 +15,7 @@ body{
 	border-top: solid 15px #b2de9a;
 	font-family: 'Quattrocento Sans', sans-serif;
 	iframe{
-		height: 0;
+		height: inherit !important;
 		display: block;
 	}
 }

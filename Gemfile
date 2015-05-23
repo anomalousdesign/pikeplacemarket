@@ -18,16 +18,15 @@ gem 'momentjs-rails'
 gem 'acts-as-taggable-on'
 gem 'friendly_id'
 gem 'ancestry'
-gem 'editables' #, path: "~/rails/editables"
+gem 'editables' #, path: '~/rails/editables'
 gem 'twitter-bootstrap-rails'
 gem 'paperclip'
-gem "fullcalendar-rails"
+gem 'jbuilder'
 gem 'aws-sdk'
 gem 'dalli'
-gem "memcachier"
+gem 'memcachier'
 gem 'nokogiri'
-gem "bugsnag"
-gem "rack-timeout"
+gem 'rack-timeout'
 
 group :development do
 	gem 'debugger'

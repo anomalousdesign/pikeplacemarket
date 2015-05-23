@@ -15,4 +15,3 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require moment
-//= require fullcalendar

@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require_tree .
- *= require fullcalendar
  *= require site.css
  *= require mobile.css
  */

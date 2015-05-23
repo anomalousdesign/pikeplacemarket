@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pike Place Market Then & Now</title>
+	<link type="text/css" href="css/style.css" rel="stylesheet" />
+	
+	<!--[if lt IE 8]>
+	<link type="text/css" href="css/ie.css" rel="stylesheet" />
+	<![endif]-->
+	
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	
+	<link href='http://fonts.googleapis.com/css?family=Fjalla+One|Sanchez' rel='stylesheet' type='text/css'>
+	
+	<script src="js/script.js"></script>
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+	<div id="overallCon">
+	
+	<div id="landingCon">
+		<div id="landing" class="slide">
+			<div class="header">
+		    	<h1>Now & <span>Then</span></h1>
+		    	<h2>An Interactive Game!</h2>
+			</div>
+			<p>The Pike Place Market today looks very similar to how it looked in the past. Some of the uses are still the same, such as farmers selling on daystalls. Have fun as you compare and contrast the following photos from around the Market.</p>
+			<a href="#" class="lets-play next">Let's Play!</a>
+		    <div class="coffee-fish"></div>
+		    <div class="carrot-guitar"></div>
+		</div>
+	</div>
+	
+	<div id="congratsCon">
+		<div id="landing" class="slide">
+			<div class="header">
+		    	<h1>Now & <span>Then</span></h1>
+		    	<h2>An Interactive Game!</h2>
+			</div>
+			<div class="explanation right">
+				<p>
+					<span class="caps">Well Done!</span> You guessed them all! <br />
+					<span class="orange caps"> You are a Market Champion!</span>
+				</p>
+			</div>
+			
+				<a href="#" class="play-again" onclick="window.location.reload()">Play Again!</a>
+		    <div class="coffee-fish"></div>
+		    <div class="carrot-guitar"></div>
+		</div>
+	</div>
+
+		
+		<div style="clear:both"></div>
+
+		<div id="detail">
+			<div id="detailCon">
+				<div id="closebtn">X</div>
+				<div id="correctCon"><p>You are Correct!</p></div>
+				<div id="photoCon"></div>
+				<div id="desc"><p></p></div>
+			</div>
+		</div>
+		
+		<h2 class="title"><span class="red">Drag a photo from the <h1>then</h1> column</span> <span class="orange">to its match in the <h1>now</h1> column.</span></h2>
+		
+		<!--DRAGGABLE THINGS-->
+		<div id="firstHalf">	
+
+			<div id="thenCon" class="droppable2">	
+				<div class="thenItem">
+					<div class="draggable" id="hmatch1"><img src="images/then1.jpg" /><span>1937</span></div>
+					<div class="thenIteminside match1inside"><img src="images/check.png" class="check" /><img src="images/then1.jpg" /></div>
+				</div>
+				<div class="thenItem">
+					<div class="draggable" id="hmatch2"><img src="images/then2.jpg" /><span>1919</span></div>
+					<div class="thenIteminside match2inside"><img src="images/check.png" class="check" /><img src="images/then2.jpg" /></div>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<div class="thenItem">
+					<div class="draggable" id="hmatch3"><img src="images/then3.jpg" /><span>1912</span></div>
+					<div class="thenIteminside match3inside"><img src="images/check.png" class="check" /><img src="images/then3.jpg" /></div>
+				</div>
+				<div class="thenItem">
+					<div class="draggable" id="hmatch4"><img src="images/then4.jpg" /><span>1937</span></div>
+					<div class="thenIteminside match4inside"><img src="images/check.png" class="check" /><img src="images/then4.jpg" /></div>
+				</div>
+
+				<div class="clearfix"></div>
+				
+				<div class="thenItem">
+					<div class="draggable" id="hmatch5"><img src="images/then5.jpg" /><span>1937</span></div>
+					<div class="thenIteminside match5inside"><img src="images/check.png" class="check" /><img src="images/then5.jpg" /></div>
+				</div>
+				<div class="thenItem">
+					<div class="draggable" id="hmatch6"><img src="images/then6.jpg" /><span>1920</span></div>
+					<div class="thenIteminside match6inside"><img src="images/check.png" class="check" /><img src="images/then6.jpg" /></div>
+				</div>
+				
+				<div class="clearfix"></div>
+				
+				<div class="thenItem">
+					<div class="draggable" id="hmatch7"><img src="images/then7.jpg" /><span>1968</span></div>
+					<div class="thenIteminside match7inside"><img src="images/check.png" class="check" /><img src="images/then7.jpg" /></div>
+				</div>
+				<div class="thenItem">
+					<div class="draggable" id="hmatch8"><img src="images/then8.jpg" /><span>1915</span></div>
+					<div class="thenIteminside match8inside"><img src="images/check.png" class="check" /><img src="images/then8.jpg" /></div>
+				</div>
+				<h1>Then</h1>
+			</div>
+			
+		</div>
+		<!--END DRAGGABLE THINGS-->
+		
+		<!--DROP TARGETS-->
+		<div id="secondHalf">	
+
+			<div id="tatCon">
+				<div class="nowItem droppable" id="tmatch8" data-id="7">
+					<div class="messagewrong">Nope! Try Again.</div>
+					<div class="messageright">Correct</div>
+					
+					<span>Pike Street</span>
+					
+					<img src="images/now1.jpg" class="thumb"/>
+					<div class="thenIteminside match8inside"><img src="images/check.png" class="check" /><span class="correct">Correct!</span></div>
+				</div>								
+								
+				<div class="nowItem droppable" id="tmatch1" data-id="0">
+					<div class="messagewrong">Nope! Try Again.</div>
+					<div class="messageright">Correct</div>
+					
+					<span>Pike Place at Pine Street</span>
+					
+					<img src="images/now2.jpg" class="thumb"/>
+					<div class="thenIteminside match1inside"><img src="images/check.png" class="check" /><span class="correct">Correct!</span></div>
+				</div>
+				
+				<div class="nowItem droppable" id="tmatch7" data-id="6">
+					<div class="messagewrong">Nope! Try Again.</div>
+					<div class="messageright">Correct</div>
+					
+					<span>Economy Arcade</span>
+					
+					<img src="images/now8.jpg" class="thumb"/>
+					<div class="thenIteminside match7inside"><img src="images/check.png" class="check" /><span class="correct">Correct!</span></div>
+				</div>
+				
+				<div class="nowItem droppable" id="tmatch6" data-id="5">
+					<div class="messagewrong">Nope! Try Again.</div>
+					<div class="messageright">Correct</div>
+					
+					<span>Downstairs, Fairley Building</span>
+					
+					<img src="images/now7.jpg" class="thumb"/>
+					<div class="thenIteminside match6inside"><img src="images/check.png" class="check" /><span class="correct">Correct!</span></div>
+				</div>
+					
+				<div class="nowItem droppable" id="tmatch4" data-id="3">
+					<div class="messagewrong">Nope! Try Again.</div>
+					<div class="messageright">Correct</div>
+					
+					<span>Stewart House SRO Housing</span>
+					
+					<img src="images/now5.jpg" class="thumb"/>
+					<div class="thenIteminside match4inside"><img src="images/check.png" class="check" /><span class="correct">Correct!</span></div>
+				</div>
+	
+				<div class="nowItem droppable" id="tmatch3" data-id="2">
+					<div class="messagewrong">Nope! Try Again.</div>
+					<div class="messageright">Correct</div>
+					
+					<span>Corner Market at 1st & Pike</span>
+					
+					<img src="images/now4.jpg" class="thumb"/>
+					<div class="thenIteminside match3inside"><img src="images/check.png" class="check" /><span class="correct">Correct!</span></div>
+				</div>
+	
+				<div class="nowItem droppable" id="tmatch5" data-id="4">
+					<div class="messagewrong">Nope! Try Again.</div>
+					<div class="messageright">Correct</div>
+					
+					<span>Triangle Building</span>
+					
+					<img src="images/now6.jpg" class="thumb"/>
+					<div class="thenIteminside match5inside"><img src="images/check.png" class="check" /><span class="correct">Correct!</span></div>
+				</div>				
+				
+				<div class="nowItem droppable" id="tmatch2" data-id="1">
+					<div class="messagewrong">Nope! Try Again.</div>
+					<div class="messageright">Correct</div>
+					
+					<span>Western Avenue</span>
+					
+					<img src="images/now3.jpg" class="thumb"/>
+					<div class="thenIteminside match2inside"><img src="images/check.png" class="check" /><span class="correct">Correct!</span></div>
+				</div>
+				
+				<h1>Now</h1>
+				
+			</div>
+			
+		</div>
+		<!--END DROP TARGETS-->
+
+	</div>
+	
+	</div>
+
+</body>
+
+</html>

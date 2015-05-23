@@ -1,0 +1,453 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: 'Sanchez', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.draggable {
+	z-index: 999;
+}
+#overallCon { width: 1280px; margin: 20px auto; display: block; position: relative;
+}
+#thenCon { width: 100%; display: block; float: left; box-sizing: border-box; padding: 15px 0 15px 15px; background: #ae1d2c; }
+#scoreCon { width: 100%; height: 100px; float: right; }
+#tatCon { width: 100%; float:left; box-sizing: border-box; padding: 15px 0 15px 15px; background: #f28b00;}
+
+#firstHalf {
+	width: 50%;
+	padding-right: 10px;
+	box-sizing: border-box;
+}
+
+#secondHalf {
+	width: 50%;
+	padding-left: 10px;
+	box-sizing: border-box;
+	display: block; 
+	float: left;
+}
+
+h1 {
+	font-family: 'Fjalla One', sans-serif;
+	text-transform: uppercase;
+	font-size: 1.4em;
+	display: block; 
+}
+
+#thenCon h1, #tatCon h1 {
+	color: #fff;
+	text-align: center;
+	font-size: 1.8em;
+}
+
+h2.title {
+	width: 100%;
+	display: block;
+	text-align: center;
+	padding: 15px 0;
+	font-size: 2em;
+	margin-left: -38px;
+}
+
+.title h1 {
+	display: inline;
+}
+
+h2 .red {
+	color: #ae1d2c;
+}
+
+h2 .orange, .orange {
+	color: #f28b00;
+}
+span.caps {
+	text-transform: uppercase;
+}
+.thenItem { 
+	text-align: center;
+	color: #666;
+	float: left;
+	cursor: pointer;
+	position: relative;
+	box-sizing: border-box;
+	padding: 0 15px 15px 0;
+	width: 50%;
+}
+.thenItem img { width: 100%; }
+
+.thenIteminside {
+	text-align: center;
+	color: #FFF;
+	float: left;
+	position: absolute;
+	display: none;
+	cursor: pointer;
+	right: 15px;
+	left: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.nowItem span{
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+	right: 15px;
+	background: rgba(0, 0, 0, .50);
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: .9em;
+}
+
+.thenItem span {
+	position: absolute;
+	bottom: 15px;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, .50);
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: .9em;
+}
+
+.thenIteminside img.check { margin-bottom: -4px; width: 50px; }
+
+.nowItem { 
+	float: left; 	
+	box-sizing: border-box;
+	padding: 0 15px 15px 0;
+	width: 50%;
+	position: relative;
+ }
+ 
+ .nowItem img.thumb {
+ 	width: 100%;
+ }
+
+img.check {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+.nowItem span.correct {
+	background: #91c376;
+	right: 0;
+}
+.messagewrong { position: absolute; color: #fff; background: #91c376; display: none; left: 0; right: 15px; text-align: center; text-transform: uppercase; padding: 10px; bottom: 30px; z-index: 2; font-size: .8em;
+}
+.messageright { position: absolute; color: #339933; text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF; display: none;}
+
+.instruct { font: 14px ; color: #666; margin-bottom: 20px;}
+.score { font: bold 18px ; margin-bottom: 5px; color: #666 }
+.numDisp { font: 18px ; color: #333; }
+
+.boxHover { opacity: .66; }
+
+#detail { 
+	height: 450px; 
+	width: 100%;
+	position: absolute; 
+	top: 190px; 
+	display: none;
+	z-index: 9999;
+	opacity: 0;
+}
+#correctCon p{
+	color: #91c376;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 15px 0;
+}
+#detail #detailCon {
+	width: 600px;
+	height: 350px;
+	background-color: #FFF;
+	-moz-box-shadow: 0 0 15px #999;
+	-webkit-box-shadow: 0 0 15px #999;
+	box-shadow: 0 0 15px #999;
+	padding: 15px;
+	position: relative;
+	margin: 0 auto;	
+	
+}
+#detail #detailCon img {
+	padding: 10px;
+}
+#detail #desc p {
+	font-family: Arial, sans-serif;
+	color: #542b1a;
+	font-size: .9em;
+	padding: 0 10px;
+	line-height: 20px;
+}
+#photoCon {
+	float: left;
+}
+
+#detail #closebtn {
+	font-family: Arial, sans-serif;
+	float: right;
+	color: #999;
+	padding: 0 2px 0 2px;
+	cursor: pointer;
+	z-index: 999;
+}
+
+#desc { font: 14px ; margin-top: 10px; color: #666; float: left;}
+.clearfix {
+	clear: both;
+}
+.credits-con { font: italic 11px ; color: #999; clear:both; padding-top: 10px; } 
+
+#shareCon {
+	font: 14px ;
+	
+	padding-top: 10px; 
+	padding-left: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #FFF;
+	width: 410px;
+	height: 190px
+}
+
+.congrats { font: bold 18px ; margin-bottom: 0px }
+
+.ui-draggable-dragging {
+	z-index: 9999999;
+}
+
+h3 {
+	font: normal 24px 'Sanchez', Georgia, "Times New Roman", Times, serif;
+	color: #A5333C;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+}
+
+h3.total {
+	color: #91C376;
+}
+
+.header {
+	position: relative;
+	left: -40px;
+	width: 295px; height: 120px;
+	background: url(../images/sound-game-sprite.png) 0 0;
+	margin: 60px auto 5px auto;
+	padding-left: 155px;
+}
+
+.header h1 {
+	padding: 20px 0 10px;
+	font: 62px/50px 'Fjalla One', sans-serif;
+	color: #F28B00;
+	text-align: left;
+}
+
+.header h1 span {
+	color: #B12029;
+}
+
+.header h2 {
+	font: 28px/28px 'Sanchez', serif;
+	color: #B12029;
+	text-align: left;
+}
+
+.hidden {
+	display: none;
+}
+
+#landing p {
+	width: 300px; height: auto;
+	margin: 0 auto 18px auto;
+	font-size: 12px;
+	text-align: justify;
+	position: relative;
+	left: 30px;
+}
+
+#wrapper {
+	padding: 30px 0 70px 0;
+}
+
+#congratsCon #landing p {
+	width: 400px; 
+	height: auto;
+	margin: 30px auto 30px auto;
+	text-align: justify;
+	position: relative;
+	left: 0;
+	text-align: center;
+}
+
+p {
+	line-height: 20px;
+	position: relative;
+	z-index: 1;
+}
+a.lets-play {
+	text-indent: -999px;
+	width: 200px; height: 50px;
+	background: url(../images/sound-game-sprite.png) -500px 0;
+	margin: 25px auto 0;
+	display: block;
+	position: relative;
+	z-index: 1;
+	left: -20px;
+	overflow: hidden;
+}
+
+a.lets-play:hover {
+	background: url(../images/sound-game-sprite.png) -500px -50px;
+}
+
+.carrot,
+.carrot-guitar,
+.guitar {
+	width: 149px; height: 280px;
+	background: url(../images/sound-game-sprite.png) -118px -333px;
+	position: absolute;
+	top: 80px; right: 50px;
+	z-index: 0;
+}
+
+.carrot {
+	height: 93px;
+}
+
+.guitar {
+	height: 187px;
+	background-position: -118px -450px;
+	top: 260px;
+	right: 30px;
+}
+
+.coffee-fish {
+	width: 118px; height: 135px;
+	background: url(../images/sound-game-sprite.png) 0 -333px;
+	position: absolute;
+	top: 220px; left: 35px;
+	z-index: 0;
+}
+
+.coffee-fish.lower {
+	top: 260px;
+}
+
+#landing {
+	width: 686px;
+	height: 440px;
+	display: block;
+	position: absolute;
+	-webkit-box-shadow: 0 0 15px #999;
+	box-shadow: 0 0 15px #999;
+	background: #fff;
+	margin: 0 auto;
+	left: 50%;
+	margin-left: -343px;
+	top: 50%;
+	margin-top: -220px;
+}
+#landingCon {
+	position: fixed;
+	background: #f28b00;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9999999;
+}
+#congratsCon {
+	position: fixed;
+	background: #ae1d2c;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9999999;
+	display: none;
+}
+
+#landing .explanation p {
+	font: normal 1.3em 'Sanchez', Georgia, "Times New Roman", Times, serif;
+	text-align: center;
+	margin: 20px 0;
+}
+
+.explanation.right p {
+	color: #69913B;
+}
+
+.explanation.wrong p {
+	color: #A5333C;
+}
+
+.explanation.wrong p .green {
+	color: #69913B;
+	text-transform: uppercase;
+}
+
+a.play-again {
+	text-indent: -999px;
+	width: 239px; height: 50px;
+	background: url(../images/sound-game-sprite.png) -461px -294px;
+	margin: 30px auto 0 auto;
+	display: block;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+
+a.play-again:hover {
+	background: url(../images/sound-game-sprite.png) -461px -344px;
+}

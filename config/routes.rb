@@ -7,6 +7,7 @@ PikeplacemarketOrg::Application.routes.draw do
   get '/waterfront-entrance', to: redirect('/marketfront')
   get '/waterfront-entrance-faq', to: redirect('/marketfront-faq')
   get '/waterfront-entrance-documents', to: redirect('/marketfront-documents')
+  get '/then_and_now', :to => redirect('/then_and-now/index.html')
 
   get 'clear-cache' => "application#clear_cache"
 

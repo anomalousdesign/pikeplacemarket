@@ -8,7 +8,7 @@ development:
   database: pikeplacemarket
   username: dev
   password: 
-  pool: 18
+  pool: 8
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -18,4 +18,4 @@ test:
   database: pikeplacemarket-test
   username: dev
   password: 
-  pool: 18
+  pool: 8

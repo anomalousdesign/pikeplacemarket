@@ -7,7 +7,7 @@ PikeplacemarketOrg::Application.routes.draw do
   get '/waterfront-entrance', to: redirect('/marketfront')
   get '/waterfront-entrance-faq', to: redirect('/marketfront-faq')
   get '/waterfront-entrance-documents', to: redirect('/marketfront-documents')
-
+  get '/now_and_then', to: redirect('/now_and_then/index.html')
   get 'clear-cache' => "application#clear_cache"
 
   devise_for :admins
